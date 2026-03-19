@@ -6,6 +6,7 @@ public class LemonadeglassInteractionEvent {
     // glass is click-held with filled jug - lemonade is filled
 
     // https://docs.neoforged.net/docs/items/interactions
+    // https://docs.neoforged.net/docs/entities/renderer
     //
     // custom interaction logic
     // if interaction
