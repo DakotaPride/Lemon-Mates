@@ -10,13 +10,14 @@ public class LemonadeglassInteractionEvent {
     // custom interaction logic
     // if interaction
     //      get target
-    //          if glass
-    //              if applicable item
-    //                  apply item to data if not present yet
-    //                  consume item once
-    //                  update model to reflect changes
-    //              if no item
-    //                  reduce lemonade by 1 level if possible
-    //                  update model
-    //              otherwise break
+    //          if not glass
+    //                return;
+    // if applicable item
+    //    apply item to data if not present yet
+    //    consume item once
+    //    update model to reflect changes
+    // return
+    // if no item
+    //    reduce lemonade by 1 level if possible
+    //    update model
 }
