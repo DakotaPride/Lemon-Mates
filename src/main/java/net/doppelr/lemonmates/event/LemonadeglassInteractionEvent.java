@@ -20,5 +20,5 @@ public class LemonadeglassInteractionEvent {
     // return
     // if no item
     //    reduce lemonade by 1 level if possible
-    //    update model
+    //    update model e
 }
