@@ -1,4 +1,4 @@
-<p><img src="https://i.imgur.com/Tc2FXLi.png" alt="Create: Lemon-Mates"></p>
+<p><img src="https://media.forgecdn.net/attachments/1582/759/icon-name-png.png" alt="Create: Lemon-Mates"></p>
 
 ---
 
@@ -6,7 +6,7 @@
 and everything you need to produce them - bottles, labels, caps, fruits and of course lemonade.
 Build your own lemonade factory with fully automated Create assembly lines!
 
-<p><img src="https://i.imgur.com/YOZo3Zi.png" alt="Filling Process"></p>
+<p><img src="https://cdn.modrinth.com/data/V142lgtk/images/28cf71b162e615e2155ca720e5650da1519faead.png" alt="Filling Process"></p>
 
 
 ### New Fruits

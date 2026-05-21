@@ -9,15 +9,15 @@
 		{
 			"name": "fluid",
 			"from": [6, 1, 6],
-			"to": [10, 6, 10],
+			"to": [10, 5, 10],
 			"rotation": {"angle": 0, "axis": "y", "origin": [6, 1, 6]},
 			"faces": {
-				"north": {"uv": [0, 0, 4, 5], "texture": "#0"},
-				"east": {"uv": [0, 0, 4, 5], "texture": "#0"},
-				"south": {"uv": [4, 0, 8, 5], "texture": "#0"},
-				"west": {"uv": [4, 0, 8, 5], "texture": "#0"},
-				"up": {"uv": [4, 9, 0, 5], "texture": "#0"},
-				"down": {"uv": [8, 5, 4, 9], "texture": "#0"}
+				"north": {"uv": [0, 0, 4, 4], "texture": "#j4"},
+				"east": {"uv": [0, 4, 4, 8], "texture": "#j4"},
+				"south": {"uv": [0, 4, 4, 8], "texture": "#j4"},
+				"west": {"uv": [4, 0, 8, 4], "texture": "#j4"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#j4"},
+				"down": {"uv": [8, 4, 4, 8], "texture": "#j4"}
 			}
 		}
 	],
