@@ -1,9 +1,10 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "tag": "lemonmates:drinking_straws"
+    "item": "minecraft:egg"
   },
   "result": {
-    "id": "lemonmates:straw_pan"
+    "id": "lemonmates:straw_trans",
+    "count": 8
   }
 }
