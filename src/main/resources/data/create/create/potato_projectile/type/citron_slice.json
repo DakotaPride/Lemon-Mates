@@ -1,6 +1,6 @@
 {
   "damage": 2,
-  "items": "lemonmates:lemon_slice",
+  "items": "lemonmates:citron_slice",
   "knockback": 0.1,
   "reload_ticks": 5,
   "render_mode": {
