@@ -1,0 +1,14 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "lemonmates:drinking_straws"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.075,
+      "id": "create:pulp"
+    }
+  ]
+}

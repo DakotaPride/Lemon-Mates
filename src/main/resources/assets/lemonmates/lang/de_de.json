@@ -126,6 +126,8 @@
   "item.lemonmates.straw_agender": "Strohhalm mit Agender Pride Flag",
   "item.lemonmates.straw_bi": "Strohhalm mit Bisexuellen Pride Flag",
   "item.lemonmates.straw_pan": "Strohhalm mit Pansexuellen Pride Flag",
+  "item.lemonmates.straw_german": "Strohhalm mit deutscher Flagge",
+  "item.lemonmates.straw_omnisexual": "Strohhalm mit Omnisexullen Pride Flag",
 
   "item.lemonmates.drink_umbrella_1": "Drinkglas Schirmchen (Rot-Weiß)",
   "item.lemonmates.drink_umbrella_2": "Drinkglas Schirmchen (Gelb-Weiß)",
@@ -136,7 +138,9 @@
   "tag.block.lemonmates.orange_logs": "Orangenstämme",
   "tag.item.lemonmates.citron_logs": "Zitronenstämme",
   "tag.item.lemonmates.orange_logs": "Orangenstämme",
-  "tag.item.lemonmates.drinking_straws": "Strohhälme",
+
+  "tag.item.lemonmates.drinking_straws": "Drinkglas Strohhälme",
+  "tag.item.lemonmates.drinking_umbrellas": "Drinkglas Schirmchen",
   "tag.item.lemonmates.bottles": "Flaschen",
   "tag.item.lemonmates.lemonade_fruits": "Limonadenfrüchte",
   "tag.item.lemonmates.lemonade_label_dyes": "Limonadenetikettfarben",

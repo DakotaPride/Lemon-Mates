@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "lemonmates:drinking_straws"
+  },
+  "result": {
+    "id": "lemonmates:straw_german"
+  }
+}

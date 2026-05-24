@@ -145,7 +145,7 @@ public class ModItems {
         () -> new ModBoatItem(true, ModBoatEntity.Type.ORANGE, new Item.Properties().stacksTo(1)));
 
     // Straws
-    // 2 = rainbow, 3 = trans, 4 = nonbinary, 5 = lesbian, 6 = gay, 7 = genderfluid, 8 = ace, 9 = aro, 10 = agender, 11 = aroace, 12 = bisexual, 13 = pansexual
+    // 2 = rainbow, 3 = trans, 4 = nonbinary, 5 = lesbian, 6 = gay, 7 = genderfluid, 8 = ace, 9 = aro, 10 = agender, 11 = aroace, 12 = bisexual, 13 = pansexual, 14 = Germany
     public static final DeferredItem<Item> STRAW_BASIC = ITEMS.register("straw_basic",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> STRAW_RAINBOW = ITEMS.register("straw_rainbow",
@@ -171,6 +171,10 @@ public class ModItems {
     public static final DeferredItem<Item> STRAW_BI = ITEMS.register("straw_bi",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> STRAW_PAN = ITEMS.register("straw_pan",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> STRAW_GERMAN = ITEMS.register("straw_german",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> STRAW_OMNISEXUAL = ITEMS.register("straw_omnisexual",
             () -> new Item(new Item.Properties()));
 
     // Umbrellas

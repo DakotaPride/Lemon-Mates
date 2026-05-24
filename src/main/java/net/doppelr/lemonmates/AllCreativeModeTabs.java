@@ -34,9 +34,6 @@ public class AllCreativeModeTabs {
                 output.accept(ModBlocks.ORANGE_CRATE);
                 output.accept(ModBlocks.RASPBERRY_CRATE);
 
-                // Misc
-                output.accept(ModBlocks.LEMONADE_GLASS);
-
                 // Finished Lemonades
                 output.accept(ModItems.CITRON_LEMONADE_BOTTLE);
                 output.accept(ModItems.ORANGE_LEMONADE_BOTTLE);
@@ -183,6 +180,8 @@ public class AllCreativeModeTabs {
                 output.accept(ModItems.STRAW_AGENDER);
                 output.accept(ModItems.STRAW_BI);
                 output.accept(ModItems.STRAW_PAN);
+                output.accept(ModItems.STRAW_GERMAN);
+                output.accept(ModItems.STRAW_OMNISEXUAL);
 
                 // Umbrellas
                 output.accept(ModItems.DRINK_UMBRELLA_1);
