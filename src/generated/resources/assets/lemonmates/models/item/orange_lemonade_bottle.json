@@ -9,7 +9,7 @@
     }
   ],
   "textures": {
-    "layer0": "lemonmates:item/bottle_empty_cap",
+    "layer0": "lemonmates:item/bottle_empty_cap_for_label",
     "layer1": "lemonmates:item/bottle_fluid/orange",
     "layer2": "lemonmates:item/label/bottle_empty",
     "layer3": "lemonmates:item/label/company",
