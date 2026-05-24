@@ -118,13 +118,13 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private void lemonadeBottleItem(DeferredItem<Item> item, String variant) {
         ModelFile bottleDrinkingModel = withExistingParent(item.getId().getPath() + "_drinking", mcLoc("item/generated"))
-            .texture("layer0", LemonMates.rl("item/bottle_empty"))
+            .texture("layer0", LemonMates.rl("item/bottle_empty_for_label"))
             .texture("layer1", LemonMates.rl(String.format("item/bottle_fluid/%s", variant)))
             .texture("layer2", LemonMates.rl("item/label/bottle_empty"))
             .texture("layer3", LemonMates.rl("item/label/company"))
             .texture("layer4", LemonMates.rl(String.format("item/label/%s", variant)));
         withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
-            .texture("layer0", LemonMates.rl("item/bottle_empty_cap"))
+            .texture("layer0", LemonMates.rl("item/bottle_empty_cap_for_label"))
             .texture("layer1", LemonMates.rl(String.format("item/bottle_fluid/%s", variant)))
             .texture("layer2", LemonMates.rl("item/label/bottle_empty"))
             .texture("layer3", LemonMates.rl("item/label/company"))
@@ -136,7 +136,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private void emptyLemonadeBottleItem(DeferredItem<Item> item, String variant) {
         withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
-            .texture("layer0", LemonMates.rl("item/bottle_empty_cap"))
+            .texture("layer0", LemonMates.rl("item/bottle_empty_cap_for_label"))
             .texture("layer1", LemonMates.rl("item/label/bottle_empty"))
             .texture("layer2", LemonMates.rl("item/label/company"))
             .texture("layer3", LemonMates.rl(String.format("item/label/%s", variant)));
