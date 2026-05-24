@@ -19,7 +19,7 @@ public class AllCreativeModeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BASE_CREATIVE_TAB = CREATIVE_MODE_TABS.register("base",
         () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + LemonMates.MOD_ID + ".base"))
-            .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
+            .withTabsBefore(com.simibubi.create.AllCreativeModeTabs.PALETTES_CREATIVE_TAB.getKey())
             .icon(() -> new ItemStack(ModItems.WATERMELON_LEMONADE_BOTTLE.get()))
             .displayItems((params, output) -> {
                 // Fruits
@@ -93,7 +93,7 @@ public class AllCreativeModeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> PROCESSING_CREATIVE_TAB = CREATIVE_MODE_TABS.register("processing",
         () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + LemonMates.MOD_ID + ".processing"))
-            .withTabsBefore(AllCreativeModeTabs.SERVING_CREATIVE_TAB.getKey())
+            .withTabsBefore(AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey())
             .icon(() -> new ItemStack(ModItems.BOTTLE_MOLD_WITH_BOTTLE.get()))
             .displayItems((params, output) -> {
                 // Plastic
@@ -158,7 +158,7 @@ public class AllCreativeModeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SERVING_CREATIVE_TAB = CREATIVE_MODE_TABS.register("serving",
         () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + LemonMates.MOD_ID + ".serving"))
-            .withTabsBefore(AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey())
+            .withTabsBefore(AllCreativeModeTabs.PROCESSING_CREATIVE_TAB.getKey())
             .icon(() -> new ItemStack(ModBlocks.LEMONADE_GLASS.get()))
             .displayItems((params, output) -> {
                 // Fruit
