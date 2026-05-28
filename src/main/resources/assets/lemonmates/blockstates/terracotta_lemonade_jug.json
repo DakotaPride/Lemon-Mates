@@ -1,0 +1,81 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_terracotta"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "1",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_1"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "2",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_2"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "3",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_3"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "4",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_4"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "5",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_5"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "6",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_6"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "7",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_7"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "8",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_fluid_8"
+      }
+    }
+  ]
+}

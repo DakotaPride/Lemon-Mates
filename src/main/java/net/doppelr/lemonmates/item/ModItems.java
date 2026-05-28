@@ -1,8 +1,8 @@
 package net.doppelr.lemonmates.item;
 
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
-import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.AllFoodProperties;
+import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.block.ModBlocks;
 import net.doppelr.lemonmates.entity.ModBoatEntity;
 import net.minecraft.world.item.HangingSignItem;
@@ -191,12 +191,12 @@ public class ModItems {
     public static final DeferredItem<Item> DRINK_UMBRELLA_4 = ITEMS.register("drink_umbrella_4",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> TERRACOTTA_LEMONADE_JUG = ITEMS.register("terracotta_lemonade_jug",
+            () -> new ModJugItem(ModBlocks.TERRACOTTA_LEMONADE_JUG.get(), new Item.Properties().stacksTo(1)));
 
     // Serving related
     public static final DeferredItem<Item> ICE_CUBES = ITEMS.register("ice_cubes",
             () -> new Item(new Item.Properties()));
-
-
 
     public static void register(IEventBus eventBus) {
          ITEMS.register(eventBus);
