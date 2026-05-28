@@ -2,7 +2,7 @@
 
 ---
 
-**Create: Lemon-Mates** is a refreshing addon mod for Create, adding various lemonade drinks
+**Create: Lemon-Mates** is a refreshing addon mod for Create, adding various lemonade drinks 
 and everything you need to produce them - bottles, labels, caps, fruits and of course lemonade.
 Build your own lemonade factory with fully automated Create assembly lines!
 

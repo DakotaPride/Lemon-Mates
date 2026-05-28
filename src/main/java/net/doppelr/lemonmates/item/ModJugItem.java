@@ -89,7 +89,7 @@ public class ModJugItem extends BlockItem {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
         BlockState state = level.getBlockState(pos);
-        if (stack.get(AllDataComponents.CAN_POUR) && state.getBlock() instanceof ModDrinkingGlassBlock)
+        if (stack.get(AllDataComponents.CAN_POUR) != null && stack.get(AllDataComponents.CAN_POUR) && state.getBlock() instanceof ModDrinkingGlassBlock)
             return InteractionResult.SUCCESS;
         return super.useOn(context);
     }

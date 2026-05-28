@@ -87,7 +87,7 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.getItem() instanceof ModJugItem jugItem && Boolean.TRUE.equals(stack.get(AllDataComponents.CAN_POUR))) {
             if (state.getValue(DRINK_LEVEL) != 2) {
-                if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null || stack.get(AllDataComponents.JUG_LEVEL) != 0) {
+                if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null || (stack.get(AllDataComponents.JUG_LEVEL) != null && stack.get(AllDataComponents.JUG_LEVEL) != 0)) {
                     int newDrinkLevel = stack.get(AllDataComponents.JUG_LEVEL) > 0 ? 2 - state.getValue(DRINK_LEVEL) : 0;
                     if (stack.get(AllDataComponents.JUG_LEVEL) == 1 || state.getValue(DRINK_LEVEL) == 1)
                         newDrinkLevel = 1;
