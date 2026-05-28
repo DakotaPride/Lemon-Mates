@@ -1,9 +1,10 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
+	"render_type": "minecraft:translucent",
 	"textures": {
-		"0": "item/lemonade_glass_fluid",
-		"particle": "item/lemonade_glass_fluid"
+		"j4": "lemonmates:block/lemonade_glass_fluid",
+		"particle": "lemonmates:block/lemonade_glass_fluid"
 	},
 	"elements": [
 		{

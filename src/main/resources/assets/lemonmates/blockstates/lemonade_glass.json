@@ -1,19 +1,1122 @@
 {
-  "variants": {
-    "facing=north": {
-      "model": "lemonmates:block/lemonade_glass"
+  "multipart": [
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass"
+      }
     },
-    "facing=south": {
-      "model": "lemonmates:block/lemonade_glass",
-      "y": 180
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "north",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half"
+      }
     },
-    "facing=east": {
-      "model": "lemonmates:block/lemonade_glass",
-      "y": 90
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "north",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full"
+      }
     },
-    "facing=west": {
-      "model": "lemonmates:block/lemonade_glass",
-      "y": 270
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "north",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow"
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "north",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow"
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_full"
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_half"
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "citron",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemon_slice"
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "orange",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/orange_slice"
+      }
+    },
+    {
+      "when": {
+        "umbrella": "red_white",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_1"
+      }
+    },
+    {
+      "when": {
+        "umbrella": "yellow_white",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_2"
+      }
+    },
+    {
+      "when": {
+        "umbrella": "black_purple",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_3"
+      }
+    },
+    {
+      "when": {
+        "umbrella": "orange_white",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_4"
+      }
+    },
+    {
+      "when": {
+        "straw": "basic",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_basic"
+      }
+    },
+    {
+      "when": {
+        "straw": "rainbow",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_rainbow"
+      }
+    },
+    {
+      "when": {
+        "straw": "trans",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_trans"
+      }
+    },
+    {
+      "when": {
+        "straw": "nonbinary",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_nonbinary"
+      }
+    },
+    {
+      "when": {
+        "straw": "lesbian",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_lesbian"
+      }
+    },
+    {
+      "when": {
+        "straw": "gay",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_gay"
+      }
+    },
+    {
+      "when": {
+        "straw": "genderfluid",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_genderfluid"
+      }
+    },
+    {
+      "when": {
+        "straw": "ace",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_ace"
+      }
+    },
+    {
+      "when": {
+        "straw": "aro",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aro"
+      }
+    },
+    {
+      "when": {
+        "straw": "aroace",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aroace"
+      }
+    },
+    {
+      "when": {
+        "straw": "agender",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_agender"
+      }
+    },
+    {
+      "when": {
+        "straw": "bi",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_bi"
+      }
+    },
+    {
+      "when": {
+        "straw": "pan",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_pan"
+      }
+    },
+    {
+      "when": {
+        "straw": "german",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_german"
+      }
+    },
+    {
+      "when": {
+        "straw": "omnisexual",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_omnisexual"
+      }
+    },
+
+
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "south",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "south",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "south",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "south",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_full",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_half",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "citron",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemon_slice",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "orange",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/orange_slice",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "umbrella": "red_white",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "umbrella": "yellow_white",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "umbrella": "black_purple",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "umbrella": "orange_white",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_4",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "basic",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_basic",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "rainbow",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_rainbow",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "trans",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_trans",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "nonbinary",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_nonbinary",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "lesbian",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_lesbian",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "gay",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_gay",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "genderfluid",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_genderfluid",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "ace",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_ace",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "aro",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aro",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "aroace",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aroace",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "agender",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_agender",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "bi",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_bi",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "pan",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_pan",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "german",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_german",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "straw": "omnisexual",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_omnisexual",
+        "y": 180
+      }
+    },
+
+
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "east",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "east",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "east",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "east",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_full",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_half",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "citron",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemon_slice",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "orange",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/orange_slice",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "umbrella": "red_white",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "umbrella": "yellow_white",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "umbrella": "black_purple",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "umbrella": "orange_white",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_4",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "basic",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_basic",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "rainbow",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_rainbow",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "trans",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_trans",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "nonbinary",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_nonbinary",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "lesbian",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_lesbian",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "gay",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_gay",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "genderfluid",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_genderfluid",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "ace",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_ace",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "aro",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aro",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "aroace",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aroace",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "agender",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_agender",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "bi",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_bi",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "pan",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_pan",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "german",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_german",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "straw": "omnisexual",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_omnisexual",
+        "y": 90
+      }
+    },
+
+
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "west",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "west",
+        "fluid": "lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "west",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "west",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_full",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "has_ice": "true",
+        "drink_level": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/ice_cube_half",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "citron",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemon_slice",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "fruit_slice": "orange",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/orange_slice",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "umbrella": "red_white",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "umbrella": "yellow_white",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "umbrella": "black_purple",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "umbrella": "orange_white",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/drink_umbrella_4",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "basic",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_basic",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "rainbow",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_rainbow",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "trans",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_trans",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "nonbinary",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_nonbinary",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "lesbian",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_lesbian",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "gay",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_gay",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "genderfluid",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_genderfluid",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "ace",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_ace",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "aro",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aro",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "aroace",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_aroace",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "agender",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_agender",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "bi",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_bi",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "pan",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_pan",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "german",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_german",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "straw": "omnisexual",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "lemonmates:block/straw_omnisexual",
+        "y": 270
+      }
     }
-  }
+  ]
 }
