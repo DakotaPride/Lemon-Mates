@@ -115,7 +115,7 @@ public class ModBlocks {
         ));
 
     public static final DeferredBlock<Block> TERRACOTTA_LEMONADE_JUG = registerBlockWithoutBlockItem("terracotta_lemonade_jug",
-            () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
+            () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlockWithoutBlockItem(String name, Supplier <T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
