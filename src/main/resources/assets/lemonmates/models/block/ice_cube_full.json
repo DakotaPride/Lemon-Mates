@@ -1,0 +1,57 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "minecraft:block/ice",
+		"particle": "minecraft:block/ice"
+	},
+	"elements": [
+		{
+			"name": "ice_cube_1",
+			"from": [6.5, 5.75, 6.25],
+			"to": [7.75, 7, 7.5],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [7.5, 5.75, 8]},
+			"faces": {
+				"north": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"east": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"south": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"west": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"up": {"uv": [4, 2, 2, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [4, 0, 2, 2], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "ice_cube_3",
+			"from": [8.5, 5.17493, 6.2],
+			"to": [9.5, 6.17493, 7.2],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 5, 8]},
+			"faces": {
+				"north": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"east": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"south": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"west": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"up": {"uv": [4, 2, 2, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [4, 0, 2, 2], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "ice_cube_top",
+			"from": [8.25, 6, 7.25],
+			"to": [9.25, 7, 8.25],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8.25, 6, 7.25]},
+			"faces": {
+				"north": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"east": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"south": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"west": {"uv": [2, 0, 4, 2], "texture": "#0"},
+				"up": {"uv": [4, 2, 2, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [4, 0, 2, 2], "rotation": 270, "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"translation": [0, 14.5, 0]
+		}
+	}
+}

@@ -114,6 +114,14 @@ public class ModBlocks {
                 .sound(SoundType.GLASS)
         ));
 
+    public static final DeferredBlock<Block> TERRACOTTA_LEMONADE_JUG = registerBlockWithoutBlockItem("terracotta_lemonade_jug",
+            () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
+
+    private static <T extends Block> DeferredBlock<T> registerBlockWithoutBlockItem(String name, Supplier <T> block) {
+        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+        return toReturn;
+    }
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier <T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
