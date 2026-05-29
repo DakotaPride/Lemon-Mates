@@ -114,9 +114,13 @@ public class ModBlocks {
         () -> new ModDrinkingGlassBlock(BlockBehaviour.Properties.of()
                 .sound(SoundType.GLASS).pushReaction(PushReaction.DESTROY)
         ));
+    public static final DeferredBlock<Block> LEMONADE_GLASS_DECORATED = registerBlock("lemonade_glass_decorated",
+            () -> new ModDrinkingGlassBlock(BlockBehaviour.Properties.of()
+                    .sound(SoundType.GLASS)
+            ));
 
     public static final DeferredBlock<Block> TERRACOTTA_LEMONADE_JUG = registerBlockWithoutBlockItem("terracotta_lemonade_jug",
-            () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TERRACOTTA).noOcclusion()));
+            () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlockWithoutBlockItem(String name, Supplier <T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

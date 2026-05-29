@@ -1,4 +1,4 @@
-// 1.21.1	2026-03-10T00:06:46.8572324	Loot Tables
+// 1.21.1	2026-05-28T23:38:51.8802081	Loot Tables
 7e6629cf425f2397f87b1a6c439f701aa8b4fd04 data/lemonmates/loot_table/blocks/citron_button.json
 5ecfcd3e41895ce2db80738f891e13845547f945 data/lemonmates/loot_table/blocks/citron_crate.json
 1126754d8c95732b55490a43313d49624d070270 data/lemonmates/loot_table/blocks/citron_door.json
@@ -17,7 +17,7 @@ be56f3f3d40997839e2f5cafbdd671ad138bff15 data/lemonmates/loot_table/blocks/citro
 0a963f93f59f29878b6a7f16be2e9fc3c413dc81 data/lemonmates/loot_table/blocks/citron_wall_hanging_sign.json
 d4e59033f364cc2b689d470b73733bcad5a931a8 data/lemonmates/loot_table/blocks/citron_wall_sign.json
 4098d61de0b4bf5314926c5a4b04f366f2f7f8d2 data/lemonmates/loot_table/blocks/citron_wood.json
-3a73a87ef8818ed861d4d2598f34f404f1dfe89f data/lemonmates/loot_table/blocks/lemonade_glass.json
+52b02e8a86046b0714d06d30e507355d0db80338 data/lemonmates/loot_table/blocks/lemonade_glass.json
 f904d74cc3fafb07d9e23051af019f5edaebaeae data/lemonmates/loot_table/blocks/orange_button.json
 8c2027370536a83e1ebc819a9b0d034c20326f33 data/lemonmates/loot_table/blocks/orange_crate.json
 48e8f83773044b736f7636152a6aba42210a525e data/lemonmates/loot_table/blocks/orange_door.json
@@ -42,3 +42,4 @@ f449a514381baf54e4515a0ca8f4a304d9c2735d data/lemonmates/loot_table/blocks/strip
 52a1b6d1cba20cd6b102a26193248df56eb37c52 data/lemonmates/loot_table/blocks/stripped_citron_wood.json
 6119e198844f5713fd685fdd8ade49f8c00a7733 data/lemonmates/loot_table/blocks/stripped_orange_log.json
 7dfcf28cad578249cb297340014d8229e44ee1c1 data/lemonmates/loot_table/blocks/stripped_orange_wood.json
+0c4ae2b05dbe46f34cfe03c0528c2ce346452121 data/lemonmates/loot_table/blocks/terracotta_lemonade_jug.json

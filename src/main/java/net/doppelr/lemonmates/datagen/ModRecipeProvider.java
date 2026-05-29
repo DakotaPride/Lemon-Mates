@@ -135,6 +135,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON))
                 .save(recipeOutput);
 
+        // Lemonade Jug/Glass
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TERRACOTTA_LEMONADE_JUG.get())
+                .pattern("# #")
+                .pattern("# #")
+                .pattern(" # ")
+                .define('#', Tags.Items.BRICKS)
+                .unlockedBy("has_bricks", has(Tags.Items.BRICKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEMONADE_GLASS.get())
+                .pattern("   ")
+                .pattern("# #")
+                .pattern(" B ")
+                .define('#', Tags.Items.GLASS_PANES)
+                .define('B', Tags.Items.GLASS_BLOCKS)
+                .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS))
+                .save(recipeOutput);
 
         // get Molds back
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.PREFORM.get(), 1)
