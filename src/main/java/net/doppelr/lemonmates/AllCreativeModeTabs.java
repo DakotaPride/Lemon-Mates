@@ -36,7 +36,6 @@ public class AllCreativeModeTabs {
 
                 // Misc
                 output.accept(ModBlocks.LEMONADE_GLASS);
-                output.accept(ModBlocks.TERRACOTTA_LEMONADE_JUG);
 
                 // Finished Lemonades
                 output.accept(ModItems.CITRON_LEMONADE_BOTTLE);
@@ -160,14 +159,12 @@ public class AllCreativeModeTabs {
         () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + LemonMates.MOD_ID + ".serving"))
             .withTabsBefore(AllCreativeModeTabs.PROCESSING_CREATIVE_TAB.getKey())
-            .icon(() -> new ItemStack(ModBlocks.LEMONADE_GLASS.get()))
+            .icon(() -> new ItemStack(ModBlocks.LEMONADE_GLASS_DECORATED.get()))
             .displayItems((params, output) -> {
-                // Fruit
-                output.accept(ModItems.CITRON_SLICE);
-                output.accept(ModItems.ORANGE_SLICE);
 
                 // Glass
                 output.accept(ModBlocks.LEMONADE_GLASS);
+                output.accept(ModBlocks.TERRACOTTA_LEMONADE_JUG);
                 output.accept(ModItems.ICE_CUBES);
 
                 // Straws
@@ -192,6 +189,17 @@ public class AllCreativeModeTabs {
                 output.accept(ModItems.DRINK_UMBRELLA_2);
                 output.accept(ModItems.DRINK_UMBRELLA_3);
                 output.accept(ModItems.DRINK_UMBRELLA_4);
+
+                // Fruit
+                output.accept(ModItems.CITRON_SLICE);
+                output.accept(ModItems.ORANGE_SLICE);
+
+                // Finished Lemonades
+                output.accept(ModItems.CITRON_LEMONADE_BOTTLE);
+                output.accept(ModItems.ORANGE_LEMONADE_BOTTLE);
+                output.accept(ModItems.RASPBERRY_LEMONADE_BOTTLE);
+                output.accept(ModItems.SUMMERMIX_LEMONADE_BOTTLE);
+                output.accept(ModItems.WATERMELON_LEMONADE_BOTTLE);
             })
         .build()
     );

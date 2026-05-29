@@ -97,7 +97,8 @@
   "block.lemonmates.citron_crate": "Zitronenkiste",
   "block.lemonmates.raspberry_crate": "Himbeerenkiste",
 
-  "block.lemonmates.lemonade_glass": "Limonaden Glass",
+  "block.lemonmates.lemonade_glass": "Limonadenglass",
+  "block.lemonmates.lemonade_glass_decorated": "Dekoriertes Limonadenglass",
   "item.lemonmates.crushed_ice": "Eiswürfel",
   "block.lemonmates.terracotta_lemonade_jug": "Porzellanlimonadenkrug",
 
