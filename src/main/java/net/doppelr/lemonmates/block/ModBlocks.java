@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -111,7 +112,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> LEMONADE_GLASS = registerBlock("lemonade_glass",
         () -> new ModDrinkingGlassBlock(BlockBehaviour.Properties.of()
-                .sound(SoundType.GLASS)
+                .sound(SoundType.GLASS).pushReaction(PushReaction.DESTROY)
         ));
 
     public static final DeferredBlock<Block> TERRACOTTA_LEMONADE_JUG = registerBlockWithoutBlockItem("terracotta_lemonade_jug",

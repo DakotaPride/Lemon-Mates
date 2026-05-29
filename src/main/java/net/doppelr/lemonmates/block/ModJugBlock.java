@@ -4,6 +4,7 @@ import net.doppelr.lemonmates.AllBlockStateProperties;
 import net.doppelr.lemonmates.AllDataComponents;
 import net.doppelr.lemonmates.block.properties.ApplicableFluidsToFluidContainer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -12,24 +13,44 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ModJugBlock extends Block {
+public class ModJugBlock extends Block implements SimpleWaterloggedBlock {
     private static final VoxelShape SHAPE = Block.box(5, 0, 5, 11, 10, 11);
 
     public static final IntegerProperty JUG_LEVEL = AllBlockStateProperties.JUG_LEVEL;
     public static final EnumProperty<ApplicableFluidsToFluidContainer> FLUID = AllBlockStateProperties.APPLICABLE_FLUID_TO_CONTAINER;
     public static final BooleanProperty CAN_POUR = AllBlockStateProperties.CAN_POUR;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public ModJugBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(JUG_LEVEL, 0).setValue(FLUID, ApplicableFluidsToFluidContainer.NONE).setValue(CAN_POUR, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(JUG_LEVEL, 0).setValue(FLUID, ApplicableFluidsToFluidContainer.NONE).setValue(CAN_POUR, false).setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+        if (state.getValue(WATERLOGGED)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+
+        return super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+    }
+
+    @Override
+    protected FluidState getFluidState(BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     @Override
@@ -67,6 +88,6 @@ public class ModJugBlock extends Block {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(JUG_LEVEL, FLUID, CAN_POUR);
+        builder.add(JUG_LEVEL, FLUID, CAN_POUR, WATERLOGGED);
     }
 }
