@@ -1,7 +1,6 @@
 package net.doppelr.lemonmates.item;
 
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import net.doppelr.lemonmates.AllFoodProperties;
 import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.block.ModBlocks;
