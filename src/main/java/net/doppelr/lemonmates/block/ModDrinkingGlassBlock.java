@@ -28,13 +28,19 @@ import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -42,7 +48,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
+public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
     public static final MapCodec<ModDrinkingGlassBlock> CODEC = simpleCodec(ModDrinkingGlassBlock::new);
     private static final VoxelShape SHAPE = Block.box(5.0, 0, 5, 11, 7, 11);
 
@@ -52,6 +58,7 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
     public static final EnumProperty<FruitSlices> FRUIT_SLICE = AllBlockStateProperties.FRUIT_SLICES;
     public static final EnumProperty<UmbrellaVariants> UMBRELLA = AllBlockStateProperties.UMBRELLAS;
     public static final BooleanProperty ICE_CUBES = AllBlockStateProperties.ICE_CUBES;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     protected ModDrinkingGlassBlock(Properties properties) {
         super(properties);
@@ -62,7 +69,22 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
                 .setValue(STRAW, StrawsVariants.NONE)
                 .setValue(FRUIT_SLICE, FruitSlices.NONE)
                 .setValue(UMBRELLA, UmbrellaVariants.NONE)
-                .setValue(ICE_CUBES, false));
+                .setValue(ICE_CUBES, false)
+                .setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+        if (state.getValue(WATERLOGGED)) {
+            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+
+        return super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+    }
+
+    @Override
+    protected FluidState getFluidState(BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     public void customConsumptionBehaviours(BlockState state, Player player) {}
@@ -248,8 +270,7 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
 
-    @Override
-    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+    public void destroyReaction(Level level, BlockPos pos, BlockState state) {
         if (!level.isClientSide) {
             ItemStack itemStack = new ItemStack(this);
             int drinkLevel = state.getValue(DRINK_LEVEL);
@@ -273,6 +294,11 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
             itemEntity.setDefaultPickUpDelay();
             level.addFreshEntity(itemEntity);
         }
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        this.destroyReaction(level, pos, state);
         return super.playerWillDestroy(level, pos, state, player);
     }
 
@@ -280,8 +306,12 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
 
-        if (stack.has(DataComponents.BLOCK_STATE))
-            tooltipComponents.add(Component.literal("Has Decorations Applied").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
+        BlockItemStateProperties dataComponentType = stack.get(DataComponents.BLOCK_STATE);
+        if (dataComponentType != null)
+            if ((dataComponentType.get(AllBlockStateProperties.STRAWS) != null && dataComponentType.get(AllBlockStateProperties.STRAWS) != StrawsVariants.NONE)
+                    || (dataComponentType.get(AllBlockStateProperties.FRUIT_SLICES) != null && dataComponentType.get(AllBlockStateProperties.FRUIT_SLICES) != FruitSlices.NONE)
+                    || (dataComponentType.get(AllBlockStateProperties.UMBRELLAS) != null  && dataComponentType.get(AllBlockStateProperties.UMBRELLAS) != UmbrellaVariants.NONE))
+                tooltipComponents.add(Component.literal("Has Decorations Applied").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
     }
 
     @Override
@@ -302,6 +332,6 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, STRAW, FRUIT_SLICE, UMBRELLA, DRINK_LEVEL, ICE_CUBES, FLUID);
+        builder.add(FACING, STRAW, FRUIT_SLICE, UMBRELLA, DRINK_LEVEL, ICE_CUBES, FLUID, WATERLOGGED);
     }
 }

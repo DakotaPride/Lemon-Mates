@@ -6,6 +6,8 @@ import net.doppelr.lemonmates.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -14,6 +16,11 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public class AllCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
         DeferredRegister.create(Registries.CREATIVE_MODE_TAB, LemonMates.MOD_ID);
+
+    private static ItemStack lemonadeJugStack(ItemStack stack) {
+        stack.set(AllDataComponents.CAN_POUR, false);
+        return stack;
+    }
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BASE_CREATIVE_TAB = CREATIVE_MODE_TABS.register("base",
         () -> CreativeModeTab.builder()
@@ -35,6 +42,7 @@ public class AllCreativeModeTabs {
 
                 // Misc
                 output.accept(ModBlocks.LEMONADE_GLASS);
+                output.accept(lemonadeJugStack(ModBlocks.TERRACOTTA_LEMONADE_JUG.toStack()));
 
                 // Finished Lemonades
                 output.accept(ModItems.CITRON_LEMONADE_BOTTLE);
@@ -163,7 +171,7 @@ public class AllCreativeModeTabs {
 
                 // Glass
                 output.accept(ModBlocks.LEMONADE_GLASS);
-                output.accept(ModBlocks.LEMONADE_JUG_TERRACOTTA);
+                output.accept(ModBlocks.TERRACOTTA_LEMONADE_JUG);
                 output.accept(ModItems.ICE_CUBES);
 
                 // Straws

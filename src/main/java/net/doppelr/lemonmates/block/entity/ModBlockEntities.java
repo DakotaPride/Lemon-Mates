@@ -2,14 +2,11 @@ package net.doppelr.lemonmates.block.entity;
 
 import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.block.ModBlocks;
-import net.doppelr.lemonmates.entity.LemonadeglassEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
 
 public class ModBlockEntities {
     public static DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -26,12 +23,6 @@ public class ModBlockEntities {
             BlockEntityType.Builder.of(ModHangingSignBlockEntity::new,
                 ModBlocks.ORANGE_HANGING_SIGN.get(), ModBlocks.ORANGE_WALL_HANGING_SIGN.get(),
                 ModBlocks.CITRON_HANGING_SIGN.get(), ModBlocks.CITRON_WALL_HANGING_SIGN.get()).build(null));
-
-    public static final Supplier<BlockEntityType<LemonadeglassEntity>> LEMONADE_GLASS_ENTITY =
-        BLOCK_ENTITIES.register("lemonade_glass_entity", () ->
-            BlockEntityType.Builder.of(LemonadeglassEntity::new,
-                ModBlocks.LEMONADE_GLASS.get()).build(null)
-    );
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
