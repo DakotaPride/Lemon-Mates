@@ -136,7 +136,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
         // Lemonade Jug/Glass
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.TERRACOTTA_LEMONADE_JUG.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEMONADE_JUG_TERRACOTTA.get())
                 .pattern("# #")
                 .pattern("# #")
                 .pattern(" # ")

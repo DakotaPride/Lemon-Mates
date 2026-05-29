@@ -100,7 +100,7 @@
   "block.lemonmates.lemonade_glass": "Lemonade Glass",
   "block.lemonmates.lemonade_glass_decorated": "Decorated Lemonade Glass",
   "item.lemonmates.ice_cubes": "Ice Cubes",
-  "block.lemonmates.terracotta_lemonade_jug": "Terracotta Lemonade Jug",
+  "block.lemonmates.lemonade_jug_terracotta": "Terracotta Lemonade Jug",
 
   "item.lemonmates.citron_lemonade_bucket": "Citron Lemonade Bucket",
   "item.lemonmates.orange_lemonade_bucket": "Orange Lemonade Bucket",
@@ -170,5 +170,7 @@
   "tag.fluid.lemonmates.lemonades.summermix": "Summer-Mix Lemonade",
   "tag.fluid.lemonmates.lemonades.watermelon": "Watermelon Lemonade",
   "tag.fluid.c.lemonades": "Lemonades",
-  "tag.fluid.c.plastic": "Plastic"
+  "tag.fluid.c.plastic": "Plastic",
+
+  "item.lemonmates.lemonade_jug_terracotta.tooltip.summary": "This is a _Test_ Tooltip."
 }

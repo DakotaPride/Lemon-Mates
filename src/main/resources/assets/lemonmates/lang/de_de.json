@@ -99,8 +99,8 @@
 
   "block.lemonmates.lemonade_glass": "Limonadenglass",
   "block.lemonmates.lemonade_glass_decorated": "Dekoriertes Limonadenglass",
-  "item.lemonmates.crushed_ice": "Eiswürfel",
-  "block.lemonmates.terracotta_lemonade_jug": "Porzellanlimonadenkrug",
+  "item.lemonmates.ice_cubes": "Eiswürfel",
+  "block.lemonmates.lemonade_jug_terracotta": "Porzellanlimonadenkrug",
 
   "item.lemonmates.citron_lemonade_bucket": "Zitronenlimonaden Eimer",
   "item.lemonmates.orange_lemonade_bucket": "Orangenlimonaden Eimer",
