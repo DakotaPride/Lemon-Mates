@@ -42,7 +42,6 @@ public class AllCreativeModeTabs {
 
                 // Misc
                 output.accept(ModBlocks.LEMONADE_GLASS);
-                output.accept(lemonadeJugStack(ModBlocks.TERRACOTTA_LEMONADE_JUG.toStack()));
 
                 // Finished Lemonades
                 output.accept(ModItems.CITRON_LEMONADE_BOTTLE);
@@ -171,7 +170,7 @@ public class AllCreativeModeTabs {
 
                 // Glass
                 output.accept(ModBlocks.LEMONADE_GLASS);
-                output.accept(ModBlocks.TERRACOTTA_LEMONADE_JUG);
+                output.accept(ModBlocks.LEMONADE_JUG_TERRACOTTA);
                 output.accept(ModItems.ICE_CUBES);
 
                 // Straws
