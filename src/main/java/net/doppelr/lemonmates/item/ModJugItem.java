@@ -114,9 +114,15 @@ public class ModJugItem extends BlockItem {
             } else if (Boolean.FALSE.equals(stack.get(AllDataComponents.CAN_POUR))) {
                 if (stack.get(AllDataComponents.JUG_LEVEL) == null || stack.get(AllDataComponents.JUG_LEVEL) <= 4) {
                     if (offHandStack.is(ModItems.SUMMERMIX_LEMONADE_BOTTLE))
-                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.LEMONADE);
+                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.SUMMERMIX_LEMONADE);
                     if (offHandStack.is(ModItems.CITRON_LEMONADE_BOTTLE))
                         this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.CITRON_LEMONADE);
+                    if (offHandStack.is(ModItems.ORANGE_LEMONADE_BOTTLE))
+                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.ORANGE_LEMONADE);
+                    if (offHandStack.is(ModItems.RASPBERRY_LEMONADE_BOTTLE))
+                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.RASPBERRY_LEMONADE);
+                    if (offHandStack.is(ModItems.WATERMELON_LEMONADE_BOTTLE))
+                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.WATERMELON_LEMONADE);
                 }
             }
         }
@@ -128,7 +134,8 @@ public class ModJugItem extends BlockItem {
     public void appendHoverText(ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
         String id = "block.lemonmates.lemonade_jug_terracotta";
         boolean pour = stack.get(AllDataComponents.CAN_POUR) != null ? stack.get(AllDataComponents.CAN_POUR) : false;
-        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour);
+        //String currentfluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != ApplicableFluidsToFluidContainer.NONE ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE ;
+        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour );// , currentfluid);
         LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 2, tooltipComponents);
     }
 }

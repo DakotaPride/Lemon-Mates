@@ -173,8 +173,10 @@
   "tag.fluid.c.plastic": "Plastic",
 
   "block.lemonmates.lemonade_jug_terracotta.tooltip.summary": "A way to store your fluids _more aesthetically._",
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition1": "_When Shift+R-Clicking with empty offhand_ (Able to pour: %1$s)",
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour1": "Switch pouring functionality to either be _priority or secondary._",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition1": "_When Shift+R-Clicking with empty offhand_",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour1": "Toggle pouring functionality to either be _active or not._ *(Currently: %1$s)*",
   "block.lemonmates.lemonade_jug_terracotta.tooltip.condition2": "_When R-Clicking onto a Lemonade Glass_",
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour2": "Pours the _fluid contained within_ into the glass."
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour2": "Pours the _fluid contained within_ into the glass.",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition3": "_When R-Clicking in air with Lemonade Bottle in offhand_",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour3": "Pours the _fluid contained within_ into the jug. (Currently: %2$s)"
 }

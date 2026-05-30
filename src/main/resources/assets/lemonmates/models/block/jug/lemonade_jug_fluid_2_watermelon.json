@@ -1,0 +1,30 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"render_type": "minecraft:translucent",
+	"textures": {
+		"j2": "lemonmates:block/lemonade_glass_fluid_watermelon",
+		"particle": "lemonmates:block/lemonade_glass_fluid_watermelon"
+	},
+	"elements": [
+		{
+			"name": "fluid",
+			"from": [6, 1, 6],
+			"to": [10, 3, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 1, 6]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2], "texture": "#j2"},
+				"east": {"uv": [0, 2, 4, 4], "texture": "#j2"},
+				"south": {"uv": [0, 5, 4, 7], "texture": "#j2"},
+				"west": {"uv": [0, 7, 4, 9], "texture": "#j2"},
+				"up": {"uv": [4, 0, 8, 4], "texture": "#j2"},
+				"down": {"uv": [4, 5, 8, 9], "texture": "#j2"}
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"translation": [0, 14.5, 0]
+		}
+	}
+}

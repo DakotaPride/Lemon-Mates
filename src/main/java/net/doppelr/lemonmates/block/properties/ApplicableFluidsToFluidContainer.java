@@ -5,15 +5,16 @@ import io.netty.buffer.ByteBuf;
 import net.createmod.catnip.codecs.stream.CatnipStreamCodecBuilders;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
 import java.util.Locale;
 
 public enum ApplicableFluidsToFluidContainer implements StringRepresentable {
     NONE,
-    LEMONADE(),
+    SUMMERMIX_LEMONADE(new FoodProperties.Builder().build()),
+    ORANGE_LEMONADE(new FoodProperties.Builder().build()),
+    RASPBERRY_LEMONADE(new FoodProperties.Builder().build()),
+    WATERMELON_LEMONADE(new FoodProperties.Builder().build()),
     CITRON_LEMONADE(new FoodProperties.Builder().build()),;
 
     final FoodProperties properties;

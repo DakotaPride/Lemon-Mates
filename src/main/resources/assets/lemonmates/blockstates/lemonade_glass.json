@@ -12,7 +12,7 @@
       "when": {
         "drink_level": "1",
         "facing": "north",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_half"
@@ -22,7 +22,7 @@
       "when": {
         "drink_level": "2",
         "facing": "north",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_full"
@@ -32,20 +32,80 @@
       "when": {
         "drink_level": "1",
         "facing": "north",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow"
+        "model": "lemonmates:block/lemonade_glass_fluid_half_orange"
       }
     },
     {
       "when": {
         "drink_level": "2",
         "facing": "north",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow"
+        "model": "lemonmates:block/lemonade_glass_fluid_full_orange"
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "north",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_summermix"
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "north",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_summermix"
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "north",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_raspberry"
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "north",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_raspberry"
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "north",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_watermelon"
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "north",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_watermelon"
       }
     },
     {
@@ -97,7 +157,7 @@
     },
     {
       "when": {
-        "umbrella": "yellow_white",
+        "umbrella": "orange_white",
         "facing": "north"
       },
       "apply": {
@@ -272,7 +332,7 @@
       "when": {
         "drink_level": "1",
         "facing": "south",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_half",
@@ -283,7 +343,7 @@
       "when": {
         "drink_level": "2",
         "facing": "south",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_full",
@@ -294,10 +354,10 @@
       "when": {
         "drink_level": "1",
         "facing": "south",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow",
+        "model": "lemonmates:block/lemonade_glass_fluid_half_orange",
         "y": 180
       }
     },
@@ -305,10 +365,76 @@
       "when": {
         "drink_level": "2",
         "facing": "south",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow",
+        "model": "lemonmates:block/lemonade_glass_fluid_full_orange",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "south",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_summermix",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "south",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_summermix",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "south",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_raspberry",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "south",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_raspberry",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "south",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_watermelon",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "south",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_watermelon",
         "y": 180
       }
     },
@@ -386,7 +512,7 @@
     },
     {
       "when": {
-        "umbrella": "orange_white",
+        "umbrella": "yellow_white",
         "facing": "south"
       },
       "apply": {
@@ -559,7 +685,7 @@
       "when": {
         "drink_level": "1",
         "facing": "east",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_half",
@@ -570,7 +696,7 @@
       "when": {
         "drink_level": "2",
         "facing": "east",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_full",
@@ -581,10 +707,10 @@
       "when": {
         "drink_level": "1",
         "facing": "east",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow",
+        "model": "lemonmates:block/lemonade_glass_fluid_half_orange",
         "y": 90
       }
     },
@@ -592,10 +718,76 @@
       "when": {
         "drink_level": "2",
         "facing": "east",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow",
+        "model": "lemonmates:block/lemonade_glass_fluid_full_orange",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "east",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_summermix",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "east",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_summermix",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "east",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_raspberry",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "east",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_raspberry",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "east",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_watermelon",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "east",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_watermelon",
         "y": 90
       }
     },
@@ -846,7 +1038,7 @@
       "when": {
         "drink_level": "1",
         "facing": "west",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_half",
@@ -857,7 +1049,7 @@
       "when": {
         "drink_level": "2",
         "facing": "west",
-        "fluid": "lemonade"
+        "fluid": "citron_lemonade"
       },
       "apply": {
         "model": "lemonmates:block/lemonade_glass_fluid_full",
@@ -868,10 +1060,10 @@
       "when": {
         "drink_level": "1",
         "facing": "west",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_half_yellow",
+        "model": "lemonmates:block/lemonade_glass_fluid_half_orange",
         "y": 270
       }
     },
@@ -879,10 +1071,76 @@
       "when": {
         "drink_level": "2",
         "facing": "west",
-        "fluid": "citron_lemonade"
+        "fluid": "orange_lemonade"
       },
       "apply": {
-        "model": "lemonmates:block/lemonade_glass_fluid_full_yellow",
+        "model": "lemonmates:block/lemonade_glass_fluid_full_orange",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "west",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_summermix",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "west",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_summermix",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "west",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_raspberry",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "west",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_raspberry",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "1",
+        "facing": "west",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_half_watermelon",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "drink_level": "2",
+        "facing": "west",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/lemonade_glass_fluid_full_watermelon",
         "y": 270
       }
     },

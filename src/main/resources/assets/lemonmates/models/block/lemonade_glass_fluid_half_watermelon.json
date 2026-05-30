@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"render_type": "minecraft:translucent",
 	"textures": {
-		"f1": "lemonmates:block/lemonade_glass_fluid_yellow",
+		"f1": "lemonmates:block/lemonade_glass_fluid_watermelon",
 		"particle": "lemonmates:item/empty"
 	},
 	"elements": [
