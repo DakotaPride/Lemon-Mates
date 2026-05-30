@@ -23,6 +23,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -104,6 +105,16 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock implements
         return super.useWithoutItem(state, level, pos, player, hitResult);
     }
 
+    private void getDroppedItem(Item item, BlockPos pos, Player player, Level level) {
+        this.getDroppedItem(item, pos, level);
+        level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOW_GOLEM_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
+    }
+
+    private void getDroppedItem(Item item, BlockPos pos, Level level) {
+        ItemStack itemStack = new ItemStack(item, 1);
+        popResource(level, pos, itemStack);
+    }
+
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.getItem() instanceof ModJugItem jugItem && Boolean.TRUE.equals(stack.get(AllDataComponents.CAN_POUR))) {
@@ -114,155 +125,94 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock implements
                         newDrinkLevel = 1;
                     int blockDrinkLevel = state.getValue(DRINK_LEVEL) == 1 ? 2 : newDrinkLevel;
                     ApplicableFluidsToFluidContainer pouredFluid = stack.get(AllDataComponents.JUG_LEVEL) > 0 ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : state.getValue(FLUID);
-                    level.setBlockAndUpdate(pos, state.setValue(FLUID, pouredFluid)
-                            .setValue(DRINK_LEVEL, blockDrinkLevel));
-                    jugItem.removeFromJugLevel(stack, newDrinkLevel);
+                    if (state.getValue(FLUID) == ApplicableFluidsToFluidContainer.NONE || state.getValue(DRINK_LEVEL) == 0) {
+                        level.setBlockAndUpdate(pos, state.setValue(FLUID, pouredFluid).setValue(DRINK_LEVEL, blockDrinkLevel));
+                        jugItem.removeFromJugLevel(stack, player, newDrinkLevel);
+                    }
                 }
             } else {
                 return ItemInteractionResult.FAIL;
             }
         }
 
-        if (stack.is(ModItems.STRAW_BASIC)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.BASIC));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        if (stack.is(Items.SHEARS)) {
+            //BlockPos popPosition = pos.offset(0, 1, 0);
+            if (state.getValue(AllBlockStateProperties.STRAWS).getValue() != 0) {
+                this.getDroppedItem(state.getValue(AllBlockStateProperties.STRAWS).getRegisteredItem().get(), pos, player, level);
+                level.setBlockAndUpdate(pos, state.setValue(AllBlockStateProperties.STRAWS, StrawsVariants.NONE));
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+            if (state.getValue(AllBlockStateProperties.UMBRELLAS).getValue() != 0) {
+                this.getDroppedItem(state.getValue(AllBlockStateProperties.UMBRELLAS).getRegisteredItem().get(), pos, player, level);
+                level.setBlockAndUpdate(pos, state.setValue(AllBlockStateProperties.UMBRELLAS, UmbrellaVariants.NONE));
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+            FruitSlices sliceValue = state.getValue(AllBlockStateProperties.FRUIT_SLICES);
+            if (sliceValue != FruitSlices.NONE) {
+                if (sliceValue == FruitSlices.CITRON)
+                    this.getDroppedItem(ModItems.CITRON_SLICE.get(), pos, player, level);
+                if (sliceValue == FruitSlices.ORANGE)
+                    this.getDroppedItem(ModItems.ORANGE_SLICE.get(), pos, player, level);
+                level.setBlockAndUpdate(pos, state.setValue(AllBlockStateProperties.FRUIT_SLICES, FruitSlices.NONE));
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+            if (state.getValue(ICE_CUBES)) {
+                this.getDroppedItem(ModItems.ICE_CUBES.get(), pos, player, level);
+                level.setBlockAndUpdate(pos, state.setValue(AllBlockStateProperties.ICE_CUBES, false));
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
         }
-        if (stack.is(ModItems.STRAW_RAINBOW)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.RAINBOW));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_TRANS)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.TRANS));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_NONBINARY)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.NONBINARY));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_LESBIAN)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.LESBIAN));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_GAY)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.GAY));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_GENDERFLUID)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.GENDERFLUID));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_ACE)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.ACE));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_ARO)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.ARO));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_AROACE)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.AROACE));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_AGENDER)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.AGENDER));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_BI)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.BI));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_PAN)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.PAN));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_GERMAN)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.GERMAN));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        if (stack.is(ModItems.STRAW_OMNISEXUAL)) {
-            level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.OMNISEXUAL));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        // Each straw follows this same logic, duplicate as necessary
 
+        for (StrawsVariants variants : StrawsVariants.values())
+            if (variants.getValue() != 0 && stack.getItem() == StrawsVariants.byValue(variants.getValue()).getRegisteredItem().get()) {
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                    if (state.getValue(AllBlockStateProperties.STRAWS).getValue() != 0)
+                        this.getDroppedItem(state.getValue(AllBlockStateProperties.STRAWS).getRegisteredItem().get(), pos, level);
+                }
+                level.setBlockAndUpdate(pos, state.setValue(STRAW, StrawsVariants.byValue(variants.getValue())));
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+
+        for (UmbrellaVariants variants : UmbrellaVariants.values())
+            if (variants.getValue() != 0 && stack.getItem() == UmbrellaVariants.byValue(variants.getValue()).getRegisteredItem().get()) {
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                    if (state.getValue(AllBlockStateProperties.UMBRELLAS).getValue() != 0)
+                        this.getDroppedItem(state.getValue(AllBlockStateProperties.UMBRELLAS).getRegisteredItem().get(), pos, level);
+                }
+                level.setBlockAndUpdate(pos, state.setValue(UMBRELLA, UmbrellaVariants.byValue(variants.getValue())));
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+
+        // Will need adjusting if more slice types are added - suggested approach: Enum registration similar to straws and umbrellas
         if (stack.is(ModItems.CITRON_SLICE)) {
-            level.setBlockAndUpdate(pos, state.setValue(FRUIT_SLICE, FruitSlices.CITRON));
-            if (!player.getAbilities().instabuild)
+            if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
+                if (state.getValue(AllBlockStateProperties.FRUIT_SLICES) != FruitSlices.NONE)
+                    this.getDroppedItem(ModItems.ORANGE_SLICE.get(), pos, level);
+            }
+            level.setBlockAndUpdate(pos, state.setValue(FRUIT_SLICE, FruitSlices.CITRON));
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-
         if (stack.is(ModItems.ORANGE_SLICE)) {
-            level.setBlockAndUpdate(pos, state.setValue(FRUIT_SLICE, FruitSlices.ORANGE));
-            if (!player.getAbilities().instabuild)
+            if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
+                if (state.getValue(AllBlockStateProperties.FRUIT_SLICES) != FruitSlices.NONE)
+                    this.getDroppedItem(ModItems.CITRON_SLICE.get(), pos, level);
+            }
+            level.setBlockAndUpdate(pos, state.setValue(FRUIT_SLICE, FruitSlices.ORANGE));
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
         // Each slice follows this same logic, duplicate as necessary
 
-        if (stack.is(ModItems.DRINK_UMBRELLA_1)) {
-            level.setBlockAndUpdate(pos, state.setValue(UMBRELLA, UmbrellaVariants.RED_WHITE));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-
-        if (stack.is(ModItems.DRINK_UMBRELLA_2)) {
-            level.setBlockAndUpdate(pos, state.setValue(UMBRELLA, UmbrellaVariants.YELLOW_WHITE));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-
-        if (stack.is(ModItems.DRINK_UMBRELLA_3)) {
-            level.setBlockAndUpdate(pos, state.setValue(UMBRELLA, UmbrellaVariants.BLACK_PURPLE));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-
-        if (stack.is(ModItems.DRINK_UMBRELLA_4)) {
-            level.setBlockAndUpdate(pos, state.setValue(UMBRELLA, UmbrellaVariants.ORANGE_WHITE));
-            if (!player.getAbilities().instabuild)
-                stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        }
-        // Each umbrella follows this same logic, duplicate as necessary
-
         if (stack.is(ModItems.ICE_CUBES)) {
-            level.setBlockAndUpdate(pos, state.setValue(ICE_CUBES, true));
-            if (!player.getAbilities().instabuild)
+            if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
+                if (state.getValue(AllBlockStateProperties.ICE_CUBES))
+                    this.getDroppedItem(ModItems.ICE_CUBES.get(), pos, level);
+            }
+            level.setBlockAndUpdate(pos, state.setValue(ICE_CUBES, true));
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
 

@@ -5,6 +5,7 @@ import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.doppelr.lemonmates.AllWoodTypes;
 import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.item.ModItems;
+import net.doppelr.lemonmates.item.ModJugItem;
 import net.doppelr.lemonmates.worldgen.tree.ModTreeGrowers;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
@@ -122,15 +123,13 @@ public class ModBlocks {
                     .sound(SoundType.GLASS)
             ));
 
-    //public static final DeferredBlock<Block> LEMONADE_JUG_TERRACOTTA = registerBlockWithoutBlockItem("lemonade_jug_terracotta",
-    //        () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).noOcclusion()));
+    public static final DeferredBlock<Block> LEMONADE_JUG_TERRACOTTA = registerBlockWithoutBlockItem("lemonade_jug_terracotta",
+            () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).noOcclusion()));
 
-    public static final BlockEntry<Block> LEMONADE_JUG_TERRACOTTA = LemonMates.registrate().block("lemonade_jug_terracotta", Block::new)
-            .addLayer(() -> RenderType::cutout)
-            .initialProperties(() -> Blocks.FLOWER_POT)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties((NonNullUnaryOperator<BlockBehaviour.Properties>) new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)))
-            .simpleItem().register();
+//    public static final BlockEntry<ModJugBlock> LEMONADE_JUG_TERRACOTTA = LemonMates.registrate().block("lemonade_jug_terracotta", ModJugBlock::new)
+//            .addLayer(() -> RenderType::cutout)
+//            .initialProperties(() -> Blocks.FLOWER_POT)
+//            .properties(BlockBehaviour.Properties::noOcclusion).register();
 
     private static <T extends Block> DeferredBlock<T> registerBlockWithoutBlockItem(String name, Supplier <T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

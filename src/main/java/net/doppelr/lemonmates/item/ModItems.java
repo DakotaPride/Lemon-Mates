@@ -1,10 +1,17 @@
 package net.doppelr.lemonmates.item;
 
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
+import com.simibubi.create.foundation.item.ItemDescription;
+import com.tterrag.registrate.util.entry.ItemEntry;
 import net.doppelr.lemonmates.AllFoodProperties;
 import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.block.ModBlocks;
+import net.doppelr.lemonmates.block.ModJugBlock;
+import net.doppelr.lemonmates.block.properties.StrawsVariants;
+import net.doppelr.lemonmates.block.properties.UmbrellaVariants;
 import net.doppelr.lemonmates.entity.ModBoatEntity;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -146,50 +153,13 @@ public class ModItems {
 
     // Straws
     // 2 = rainbow, 3 = trans, 4 = nonbinary, 5 = lesbian, 6 = gay, 7 = genderfluid, 8 = ace, 9 = aro, 10 = agender, 11 = aroace, 12 = bisexual, 13 = pansexual, 14 = Germany
-    public static final DeferredItem<Item> STRAW_BASIC = ITEMS.register("straw_basic",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_RAINBOW = ITEMS.register("straw_rainbow",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_TRANS = ITEMS.register("straw_trans",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_NONBINARY = ITEMS.register("straw_nonbinary",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_LESBIAN = ITEMS.register("straw_lesbian",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_GAY = ITEMS.register("straw_gay",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_GENDERFLUID = ITEMS.register("straw_genderfluid",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_ACE = ITEMS.register("straw_ace",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_ARO = ITEMS.register("straw_aro",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_AROACE = ITEMS.register("straw_aroace",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_AGENDER = ITEMS.register("straw_agender",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_BI = ITEMS.register("straw_bi",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_PAN = ITEMS.register("straw_pan",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_GERMAN = ITEMS.register("straw_german",
-            () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STRAW_OMNISEXUAL = ITEMS.register("straw_omnisexual",
-            () -> new Item(new Item.Properties()));
+
+    /** Move registration to enum -> {@link StrawsVariants} **/
 
     // Umbrellas
     // Red-White
-    public static final DeferredItem<Item> DRINK_UMBRELLA_1 = ITEMS.register("drink_umbrella_1",
-            () -> new Item(new Item.Properties()));
-    // Yellow-White
-    public static final DeferredItem<Item> DRINK_UMBRELLA_2 = ITEMS.register("drink_umbrella_2",
-            () -> new Item(new Item.Properties()));
-    // Black-Purple
-    public static final DeferredItem<Item> DRINK_UMBRELLA_3 = ITEMS.register("drink_umbrella_3",
-            () -> new Item(new Item.Properties()));
-    // Orange-White
-    public static final DeferredItem<Item> DRINK_UMBRELLA_4 = ITEMS.register("drink_umbrella_4",
-            () -> new Item(new Item.Properties()));
+
+    /** Move registration to enum -> {@link UmbrellaVariants} **/
 
     public static final DeferredItem<Item> LEMONADE_JUG_TERRACOTTA = ITEMS.register("lemonade_jug_terracotta",
             () -> new ModJugItem(ModBlocks.LEMONADE_JUG_TERRACOTTA.get(), new Item.Properties().stacksTo(1)));
@@ -199,6 +169,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
-         ITEMS.register(eventBus);
+        StrawsVariants.include();
+        UmbrellaVariants.include();
+        ITEMS.register(eventBus);
     }
 }

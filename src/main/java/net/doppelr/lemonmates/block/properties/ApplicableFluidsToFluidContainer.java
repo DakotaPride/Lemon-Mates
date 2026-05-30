@@ -13,8 +13,8 @@ import java.util.Locale;
 
 public enum ApplicableFluidsToFluidContainer implements StringRepresentable {
     NONE,
-    LEMONADE(new FoodProperties.Builder().effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 2), 1.0F).build()),
-    CITRON_LEMONADE(new FoodProperties.Builder().effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 2), 1.0F).build()),;
+    LEMONADE(),
+    CITRON_LEMONADE(new FoodProperties.Builder().build()),;
 
     final FoodProperties properties;
     public static final Codec<ApplicableFluidsToFluidContainer> CODEC = StringRepresentable.fromEnum(ApplicableFluidsToFluidContainer::values);

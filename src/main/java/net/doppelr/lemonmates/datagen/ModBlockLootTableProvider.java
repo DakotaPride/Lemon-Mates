@@ -125,8 +125,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CITRON_CRATE.get());
         dropSelf(ModBlocks.RASPBERRY_CRATE.get());
 
-        //add(ModBlocks.LEMONADE_GLASS.get(), noDrop());
-        //add(ModBlocks.LEMONADE_JUG_TERRACOTTA.get(), noDrop());
+        add(ModBlocks.LEMONADE_GLASS.get(), noDrop());
+        add(ModBlocks.LEMONADE_JUG_TERRACOTTA.get(), noDrop());
+
+        // Temp to fix datagen nagging
+        add(ModBlocks.LEMONADE_GLASS_DECORATED.get(), noDrop());
     }
 
     @Override
