@@ -1,10 +1,6 @@
 package net.doppelr.lemonmates;
 
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.simibubi.create.foundation.item.ItemDescription;
-import com.tterrag.registrate.util.nullness.NonNullSupplier;
-import net.createmod.catnip.lang.FontHelper;
 import net.doppelr.lemonmates.block.ModBlocks;
 import net.doppelr.lemonmates.block.entity.ModBlockEntities;
 import net.doppelr.lemonmates.datagen.DataGenerators;
@@ -22,6 +18,7 @@ public class LemonMates {
     public static final String MOD_ID = "lemonmates";
     public static final Logger LOGGER = LogUtils.getLogger();
 
+
     public LemonMates(IEventBus modEventBus, ModContainer modContainer) {
         AllCreativeModeTabs.register(modEventBus);
         AllDataComponents.register(modEventBus);
@@ -36,21 +33,8 @@ public class LemonMates {
         modEventBus.addListener(DataGenerators::gatherData);
     }
 
-    public static final NonNullSupplier<CreateRegistrate> REGISTRATE =
-            NonNullSupplier.lazy(() -> CreateRegistrate.create(MOD_ID));
-
-
-    static {
-        REGISTRATE.get().setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE));
-    }
-
-    public static CreateRegistrate registrate() {
-        return REGISTRATE.get();
-    }
-
     public static ResourceLocation rl(String path){
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
-
 
 }

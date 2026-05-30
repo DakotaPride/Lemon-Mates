@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "lemonmates:terracotta_lemonade_jug"
+        "recipe": "lemonmates:lemonade_jug_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "lemonmates:terracotta_lemonade_jug"
+      "lemonmates:lemonade_jug_terracotta"
     ]
   }
 }

@@ -3,6 +3,8 @@ package net.doppelr.lemonmates.datagen;
 import net.doppelr.lemonmates.AllTags;
 import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.block.ModBlocks;
+import net.doppelr.lemonmates.block.properties.StrawsVariants;
+import net.doppelr.lemonmates.block.properties.UmbrellaVariants;
 import net.doppelr.lemonmates.fluid.ModFluids;
 import net.doppelr.lemonmates.item.ModItems;
 import net.minecraft.core.HolderLookup;
@@ -107,27 +109,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
             ModItems.INCOMPLETE_ORANGE_LEMONADE.get(),
             ModItems.INCOMPLETE_RASPBERRY_LEMONADE.get(),
             ModItems.INCOMPLETE_SUMMERMIX_LEMONADE.get(),
-            ModItems.INCOMPLETE_WATERMELON_LEMONADE.get(),
-
-            ModItems.STRAW_BASIC.get(),
-            ModItems.STRAW_RAINBOW.get(),
-            ModItems.STRAW_TRANS.get(),
-            ModItems.STRAW_NONBINARY.get(),
-            ModItems.STRAW_LESBIAN.get(),
-            ModItems.STRAW_GAY.get(),
-            ModItems.STRAW_GENDERFLUID.get(),
-            ModItems.STRAW_ACE.get(),
-            ModItems.STRAW_ARO.get(),
-            ModItems.STRAW_AROACE.get(),
-            ModItems.STRAW_AGENDER.get(),
-            ModItems.STRAW_BI.get(),
-            ModItems.STRAW_PAN.get(),
-
-            ModItems.DRINK_UMBRELLA_1.get(),
-            ModItems.DRINK_UMBRELLA_2.get(),
-            ModItems.DRINK_UMBRELLA_3.get(),
-            ModItems.DRINK_UMBRELLA_4.get()
+            ModItems.INCOMPLETE_WATERMELON_LEMONADE.get()
         );
+        for (StrawsVariants variants : StrawsVariants.values())
+            if (variants.getValue() != 0)
+                tag(com.simibubi.create.AllTags.AllItemTags.UPRIGHT_ON_BELT.tag).add(variants.getRegisteredItem().get());
+        for (UmbrellaVariants variants : UmbrellaVariants.values())
+            if (variants.getValue() != 0)
+                tag(com.simibubi.create.AllTags.AllItemTags.UPRIGHT_ON_BELT.tag).add(variants.getRegisteredItem().get());
         tag(AllTags.ItemTags.MOLDS).add(
             ModItems.PREFORM_MOLD.get().asItem(),
             ModItems.BOTTLE_MOLD.get().asItem(),

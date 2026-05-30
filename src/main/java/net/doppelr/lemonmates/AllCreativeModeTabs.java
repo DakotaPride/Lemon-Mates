@@ -1,6 +1,8 @@
 package net.doppelr.lemonmates;
 
 import net.doppelr.lemonmates.block.ModBlocks;
+import net.doppelr.lemonmates.block.properties.StrawsVariants;
+import net.doppelr.lemonmates.block.properties.UmbrellaVariants;
 import net.doppelr.lemonmates.fluid.ModFluids;
 import net.doppelr.lemonmates.item.ModItems;
 import net.minecraft.core.registries.Registries;
@@ -40,6 +42,7 @@ public class AllCreativeModeTabs {
 
                 // Misc
                 output.accept(ModBlocks.LEMONADE_GLASS);
+                output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_TERRACOTTA.toStack()));
 
                 // Finished Lemonades
                 output.accept(ModItems.CITRON_LEMONADE_BOTTLE);
@@ -172,27 +175,15 @@ public class AllCreativeModeTabs {
                 output.accept(ModItems.ICE_CUBES);
 
                 // Straws
-                output.accept(ModItems.STRAW_BASIC);
-                output.accept(ModItems.STRAW_RAINBOW);
-                output.accept(ModItems.STRAW_TRANS);
-                output.accept(ModItems.STRAW_NONBINARY);
-                output.accept(ModItems.STRAW_LESBIAN);
-                output.accept(ModItems.STRAW_GAY);
-                output.accept(ModItems.STRAW_GENDERFLUID);
-                output.accept(ModItems.STRAW_ACE);
-                output.accept(ModItems.STRAW_ARO);
-                output.accept(ModItems.STRAW_AROACE);
-                output.accept(ModItems.STRAW_AGENDER);
-                output.accept(ModItems.STRAW_BI);
-                output.accept(ModItems.STRAW_PAN);
-                output.accept(ModItems.STRAW_GERMAN);
-                output.accept(ModItems.STRAW_OMNISEXUAL);
+                for (StrawsVariants variants : StrawsVariants.values())
+                    if (variants.getValue() != 0)
+                        output.accept(variants.getRegisteredItem());
+
 
                 // Umbrellas
-                output.accept(ModItems.DRINK_UMBRELLA_1);
-                output.accept(ModItems.DRINK_UMBRELLA_2);
-                output.accept(ModItems.DRINK_UMBRELLA_3);
-                output.accept(ModItems.DRINK_UMBRELLA_4);
+                for (UmbrellaVariants variants : UmbrellaVariants.values())
+                    if (variants.getValue() != 0)
+                        output.accept(variants.getRegisteredItem());
 
                 // Fruit
                 output.accept(ModItems.CITRON_SLICE);
