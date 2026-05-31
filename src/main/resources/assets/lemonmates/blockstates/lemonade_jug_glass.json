@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "lemonmates:block/lemonade_jug_terracotta"
+        "model": "lemonmates:block/lemonade_jug_glass"
       }
     },
     {
