@@ -47,6 +47,44 @@ public class ModJugItem extends BlockItem {
             stack.set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, fluid);
     }
 
+    public void setContainedFluidWithBlockStateData(ItemStack stack, ApplicableFluidsToFluidContainer fluid) {
+        if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == ApplicableFluidsToFluidContainer.NONE
+                || stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == fluid) {
+            this.setContainedFluid(stack, fluid);
+            if (stack.get(DataComponents.BLOCK_STATE) != null) {
+                DataComponentMap.Builder map = DataComponentMap.builder();
+
+                int jugLevel = stack.get(AllDataComponents.JUG_LEVEL) != null ?
+                        stack.get(AllDataComponents.JUG_LEVEL) : 0;
+
+                map.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY
+                                .with(AllBlockStateProperties.JUG_LEVEL, jugLevel)
+                                .with(AllBlockStateProperties.APPLICABLE_FLUID_TO_CONTAINER, fluid))
+                        .set(AllDataComponents.JUG_LEVEL, jugLevel)
+                        .set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, fluid);
+
+                stack.applyComponents(map.build());
+            }
+        }
+        else if (stack.get(AllDataComponents.JUG_LEVEL) != null && stack.get(AllDataComponents.JUG_LEVEL) == 0) {
+            this.setContainedFluid(stack, fluid);
+            if (stack.get(DataComponents.BLOCK_STATE) != null) {
+                DataComponentMap.Builder map = DataComponentMap.builder();
+
+                int jugLevel = stack.get(AllDataComponents.JUG_LEVEL) != null ?
+                        stack.get(AllDataComponents.JUG_LEVEL) : 0;
+
+                map.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY
+                                .with(AllBlockStateProperties.JUG_LEVEL, jugLevel)
+                                .with(AllBlockStateProperties.APPLICABLE_FLUID_TO_CONTAINER, fluid))
+                        .set(AllDataComponents.JUG_LEVEL, jugLevel)
+                        .set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, fluid);
+
+                stack.applyComponents(map.build());
+            }
+        }
+    }
+
     public void setJugLevel(ItemStack stack, int jugLevel) {
         stack.set(AllDataComponents.JUG_LEVEL, jugLevel);
     }
@@ -110,31 +148,43 @@ public class ModJugItem extends BlockItem {
         }
     }
 
-    public void jugLevelHandling(ItemStack stack, Player player, ApplicableFluidsToFluidContainer fluid) {
+    public void jugLevelHandling(ItemStack stack, ItemStack offHandStack, ItemStack emptyStack, Player player, ApplicableFluidsToFluidContainer fluid) {
         Level level = player.level();
         if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != fluid)
-            this.setContainedFluid(stack, fluid);
+            this.setContainedFluidWithBlockStateData(stack, fluid);
 
         boolean checkFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null && (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == fluid || stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == ApplicableFluidsToFluidContainer.NONE);
 
         if (stack.get(AllDataComponents.JUG_LEVEL) == null || stack.get(AllDataComponents.JUG_LEVEL) == 0) {
             this.setJugLevel(stack, 4);
             level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
-            if (!player.getAbilities().instabuild)
-                player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
+            if (!player.getAbilities().instabuild) {
+                offHandStack.shrink(1);
+                if (!player.getInventory().add(emptyStack))
+                    player.drop(emptyStack, false);
+                else player.addItem(emptyStack);
+            }
         } else if (stack.get(AllDataComponents.JUG_LEVEL) <= 4 && checkFluid) {
             this.addToJugLevelWithBlockStateData(stack, 4);
             level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
-            if (!player.getAbilities().instabuild)
-                player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
+            if (!player.getAbilities().instabuild) {
+                offHandStack.shrink(1);
+                if (!player.getInventory().add(emptyStack))
+                    player.drop(emptyStack, false);
+                else player.addItem(emptyStack);
+            }
         } else if (stack.get(AllDataComponents.JUG_LEVEL) < 8 && checkFluid) {
             int incrementJugLevel = 4;
             if (stack.get(AllDataComponents.JUG_LEVEL) > 4)
                 incrementJugLevel = 8 - stack.get(AllDataComponents.JUG_LEVEL);
             this.addToJugLevelWithBlockStateData(stack, incrementJugLevel);
             level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
-            if (!player.getAbilities().instabuild)
-                player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
+            if (!player.getAbilities().instabuild) {
+                offHandStack.shrink(1);
+                if (!player.getInventory().add(emptyStack))
+                    player.drop(emptyStack, false);
+                else player.addItem(emptyStack);
+            }
         }
     }
 
@@ -179,15 +229,15 @@ public class ModJugItem extends BlockItem {
             } else if (Boolean.FALSE.equals(stack.get(AllDataComponents.CAN_POUR))) {
                 if (stack.get(AllDataComponents.JUG_LEVEL) == null || stack.get(AllDataComponents.JUG_LEVEL) <= 4) {
                     if (offHandStack.is(ModItems.SUMMERMIX_LEMONADE_BOTTLE))
-                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.SUMMERMIX_LEMONADE);
+                        this.jugLevelHandling(stack, offHandStack, ModItems.EMPTY_SUMMERMIX_LEMONADE_BOTTLE.toStack(), player, ApplicableFluidsToFluidContainer.SUMMERMIX_LEMONADE);
                     if (offHandStack.is(ModItems.CITRON_LEMONADE_BOTTLE))
-                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.CITRON_LEMONADE);
+                        this.jugLevelHandling(stack, offHandStack, ModItems.EMPTY_CITRON_LEMONADE_BOTTLE.toStack(), player, ApplicableFluidsToFluidContainer.CITRON_LEMONADE);
                     if (offHandStack.is(ModItems.ORANGE_LEMONADE_BOTTLE))
-                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.ORANGE_LEMONADE);
+                        this.jugLevelHandling(stack, offHandStack, ModItems.EMPTY_ORANGE_LEMONADE_BOTTLE.toStack(), player, ApplicableFluidsToFluidContainer.ORANGE_LEMONADE);
                     if (offHandStack.is(ModItems.RASPBERRY_LEMONADE_BOTTLE))
-                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.RASPBERRY_LEMONADE);
+                        this.jugLevelHandling(stack, offHandStack, ModItems.EMPTY_RASPBERRY_LEMONADE_BOTTLE.toStack(), player, ApplicableFluidsToFluidContainer.RASPBERRY_LEMONADE);
                     if (offHandStack.is(ModItems.WATERMELON_LEMONADE_BOTTLE))
-                        this.jugLevelHandling(stack, player, ApplicableFluidsToFluidContainer.WATERMELON_LEMONADE);
+                        this.jugLevelHandling(stack, offHandStack, ModItems.EMPTY_WATERMELON_LEMONADE_BOTTLE.toStack(), player, ApplicableFluidsToFluidContainer.WATERMELON_LEMONADE);
                 }
             }
         }
@@ -199,10 +249,10 @@ public class ModJugItem extends BlockItem {
     public void appendHoverText(ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
         String id = "block.lemonmates.lemonade_jug_terracotta";
         boolean pour = stack.get(AllDataComponents.CAN_POUR) != null ? stack.get(AllDataComponents.CAN_POUR) : false;
-        ApplicableFluidsToFluidContainer applicableFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE;
         int level = stack.get(AllDataComponents.JUG_LEVEL) != null ? stack.get(AllDataComponents.JUG_LEVEL): 0;
+        ApplicableFluidsToFluidContainer applicableFluid = level > 0 ? (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE) : ApplicableFluidsToFluidContainer.NONE;
         Component fluid = Component.translatable("jugFluid.lemonmates." + applicableFluid.getSerializedName());
-        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour, fluid);
+        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour, fluid, level);
         LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 2, tooltipComponents, pour, fluid, level);
         LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 3, tooltipComponents, fluid, level);
     }

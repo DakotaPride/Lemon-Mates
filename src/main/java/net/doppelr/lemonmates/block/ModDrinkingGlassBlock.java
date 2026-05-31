@@ -118,27 +118,44 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock implements
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (stack.getItem() instanceof ModJugItem jugItem && Boolean.TRUE.equals(stack.get(AllDataComponents.CAN_POUR))) {
-            if (state.getValue(DRINK_LEVEL) != 2) {
-                if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null || (stack.get(AllDataComponents.JUG_LEVEL) != null && stack.get(AllDataComponents.JUG_LEVEL) != 0)) {
-                    int newDrinkLevel = stack.get(AllDataComponents.JUG_LEVEL) > 0 ? 2 - state.getValue(DRINK_LEVEL) : 0;
-                    if (stack.get(AllDataComponents.JUG_LEVEL) == 1 || state.getValue(DRINK_LEVEL) == 1)
-                        newDrinkLevel = 1;
-                    int blockDrinkLevel = state.getValue(DRINK_LEVEL) == 1 ? 2 : newDrinkLevel;
-                    ApplicableFluidsToFluidContainer pouredFluid = stack.get(AllDataComponents.JUG_LEVEL) > 0 ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : state.getValue(FLUID);
-                    if (state.getValue(FLUID) == ApplicableFluidsToFluidContainer.NONE || state.getValue(DRINK_LEVEL) == 0) {
-                        if (stack.get(AllDataComponents.JUG_LEVEL) > 0)
+            if (state.getValue(DRINK_LEVEL) == 0) {
+                if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null
+                        || (stack.get(AllDataComponents.JUG_LEVEL) != null) && stack.get(AllDataComponents.JUG_LEVEL) != 0) {
+                    ApplicableFluidsToFluidContainer pouredFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER);
+                    if ((state.getValue(FLUID) == ApplicableFluidsToFluidContainer.NONE
+                            || state.getValue(FLUID) == stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER))
+                            || (state.getValue(DRINK_LEVEL) == 0)) {
+                        if (stack.get(AllDataComponents.JUG_LEVEL) > 0) {
                             level.playSound(player, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-                        level.setBlockAndUpdate(pos, state.setValue(FLUID, pouredFluid).setValue(DRINK_LEVEL, blockDrinkLevel));
-                        jugItem.removeFromJugLevelWithBlockStateData(stack, player, newDrinkLevel);
+                            level.setBlockAndUpdate(pos, state.setValue(FLUID, pouredFluid).setValue(DRINK_LEVEL, 2));
+                            jugItem.removeFromJugLevelWithBlockStateData(stack, player, 1);
+                        }
                     }
                 }
             } else {
                 return ItemInteractionResult.FAIL;
             }
+
+//            if (state.getValue(DRINK_LEVEL) != 2) {
+//                if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null || (stack.get(AllDataComponents.JUG_LEVEL) != null && stack.get(AllDataComponents.JUG_LEVEL) != 0)) {
+//                    int newDrinkLevel = stack.get(AllDataComponents.JUG_LEVEL) > 0 ? 2 - state.getValue(DRINK_LEVEL) : 0;
+//                    if (stack.get(AllDataComponents.JUG_LEVEL) == 1 || state.getValue(DRINK_LEVEL) == 1)
+//                        newDrinkLevel = 1;
+//                    int blockDrinkLevel = state.getValue(DRINK_LEVEL) == 1 ? 2 : newDrinkLevel;
+//                    ApplicableFluidsToFluidContainer pouredFluid = stack.get(AllDataComponents.JUG_LEVEL) > 0 ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : state.getValue(FLUID);
+//                    if (state.getValue(FLUID) == ApplicableFluidsToFluidContainer.NONE || state.getValue(DRINK_LEVEL) == 0) {
+//                        if (stack.get(AllDataComponents.JUG_LEVEL) > 0)
+//                            level.playSound(player, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+//                        level.setBlockAndUpdate(pos, state.setValue(FLUID, pouredFluid).setValue(DRINK_LEVEL, blockDrinkLevel));
+//                        jugItem.removeFromJugLevelWithBlockStateData(stack, player, newDrinkLevel);
+//                    }
+//                }
+//            } else {
+//                return ItemInteractionResult.FAIL;
+//            }
         }
 
         if (stack.is(Items.SHEARS)) {
-            //BlockPos popPosition = pos.offset(0, 1, 0);
             if (state.getValue(AllBlockStateProperties.STRAWS).getValue() != 0) {
                 this.getDroppedItem(state.getValue(AllBlockStateProperties.STRAWS).getRegisteredItem().get(), pos, player, level);
                 level.setBlockAndUpdate(pos, state.setValue(AllBlockStateProperties.STRAWS, StrawsVariants.NONE));
