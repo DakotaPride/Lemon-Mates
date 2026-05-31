@@ -125,11 +125,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> LEMONADE_JUG_TERRACOTTA = registerBlockWithoutBlockItem("lemonade_jug_terracotta",
             () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).noOcclusion()));
+    public static final DeferredBlock<Block> LEMONADE_JUG_GLASS = registerBlockWithoutBlockItem("lemonade_jug_glass",
+            () -> new ModJugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT).noOcclusion().sound(SoundType.GLASS)));
 
-//    public static final BlockEntry<ModJugBlock> LEMONADE_JUG_TERRACOTTA = LemonMates.registrate().block("lemonade_jug_terracotta", ModJugBlock::new)
-//            .addLayer(() -> RenderType::cutout)
-//            .initialProperties(() -> Blocks.FLOWER_POT)
-//            .properties(BlockBehaviour.Properties::noOcclusion).register();
 
     private static <T extends Block> DeferredBlock<T> registerBlockWithoutBlockItem(String name, Supplier <T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

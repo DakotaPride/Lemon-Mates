@@ -163,8 +163,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> LEMONADE_JUG_TERRACOTTA = ITEMS.register("lemonade_jug_terracotta",
             () -> new ModJugItem(ModBlocks.LEMONADE_JUG_TERRACOTTA.get(), new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> LEMONADE_JUG_GLASS = ITEMS.register("lemonade_jug_glass",
+            () -> new ModJugItem(ModBlocks.LEMONADE_JUG_GLASS.get(), new Item.Properties().stacksTo(1)));
 
-    // Serving related
     public static final DeferredItem<Item> ICE_CUBES = ITEMS.register("ice_cubes",
             () -> new Item(new Item.Properties()));
 

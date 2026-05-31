@@ -1,0 +1,377 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "lemonmates:block/lemonade_jug_terracotta"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "1",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_1"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "2",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_2"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "3",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_3"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "4",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_4"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "5",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_5"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "6",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_6"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "7",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_7"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "8",
+        "fluid": "citron_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_8"
+      }
+    },
+
+
+    {
+      "when": {
+        "jug_level": "1",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_1_orange"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "2",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_2_orange"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "3",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_3_orange"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "4",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_4_orange"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "5",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_5_orange"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "6",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_6_orange"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "7",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_7_orange"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "8",
+        "fluid": "orange_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_8_orange"
+      }
+    },
+
+
+    {
+      "when": {
+        "jug_level": "1",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_1_raspberry"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "2",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_2_raspberry"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "3",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_3_raspberry"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "4",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_4_raspberry"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "5",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_5_raspberry"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "6",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_6_raspberry"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "7",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_7_raspberry"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "8",
+        "fluid": "raspberry_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_8_raspberry"
+      }
+    },
+
+
+    {
+      "when": {
+        "jug_level": "1",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_1_summermix"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "2",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_2_summermix"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "3",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_3_summermix"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "4",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_4_summermix"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "5",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_5_summermix"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "6",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_6_summermix"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "7",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_7_summermix"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "8",
+        "fluid": "summermix_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_8_summermix"
+      }
+    },
+
+
+    {
+      "when": {
+        "jug_level": "1",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_1_watermelon"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "2",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_2_watermelon"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "3",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_3_watermelon"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "4",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_4_watermelon"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "5",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_5_watermelon"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "6",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_6_watermelon"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "7",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_7_watermelon"
+      }
+    },
+    {
+      "when": {
+        "jug_level": "8",
+        "fluid": "watermelon_lemonade"
+      },
+      "apply": {
+        "model": "lemonmates:block/jug/lemonade_jug_fluid_8_watermelon"
+      }
+    }
+  ]
+}
