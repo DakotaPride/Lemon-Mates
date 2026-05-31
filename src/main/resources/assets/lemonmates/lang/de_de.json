@@ -101,6 +101,7 @@
   "block.lemonmates.lemonade_glass_decorated": "Dekoriertes Limonadenglass",
   "item.lemonmates.ice_cubes": "Eiswürfel",
   "block.lemonmates.lemonade_jug_terracotta": "Porzellanlimonadenkrug",
+  "block.lemonmates.lemonade_jug_glass": "Glaslimonadenkrug",
 
   "item.lemonmates.citron_lemonade_bucket": "Zitronenlimonaden Eimer",
   "item.lemonmates.orange_lemonade_bucket": "Orangenlimonaden Eimer",
@@ -163,6 +164,8 @@
   "tag.item.lemonmates.labels.complete": "Fertige Etiketten",
   "tag.item.lemonmates.molds": "Förmlinge",
   "tag.item.c.buckets.plastic": "Plastikeimer",
+  "tag.item.lemonmates.valid_jug_fluids": "Mögliche Krug Flüssigkeiten",
+
   "tag.fluid.lemonmates.lemonades": "Limonaden",
   "tag.fluid.lemonmates.lemonades.citron": "Zitronenlimonaden",
   "tag.fluid.lemonmates.lemonades.orange": "Orangenlimonaden",
@@ -170,5 +173,20 @@
   "tag.fluid.lemonmates.lemonades.summermix": "Summer-Mix-Limonaden",
   "tag.fluid.lemonmates.lemonades.watermelon": "Wassermeloneblimonaden",
   "tag.fluid.c.lemonades": "Limonaden",
-  "tag.fluid.c.plastic": "Plastik"
+  "tag.fluid.c.plastic": "Plastik",
+
+  "jugFluid.lemonmates.none": "Keine",
+  "jugFluid.lemonmates.citron_lemonade": "Zitronenlimonade",
+  "jugFluid.lemonmates.orange_lemonade": "Orangenlimonade",
+  "jugFluid.lemonmates.raspberry_lemonade": "Himbeerbrause",
+  "jugFluid.lemonmates.summermix_lemonade": "Summer-Mix-Limonade",
+  "jugFluid.lemonmates.watermelon_lemonade": "Wassermelonenlimonade",
+
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.summary": "Ein Weg, um deine Flüssigkeiten _asthetischer_ zu lagern. Genug Platz, um _8 Gläser_ komplett zu füllen.",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition1": "_Wenn während Schleichen genutzt mit leerer sekundärer Hand_ (Ausschenkbar: %1$s)",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour1": "Wechselt die Ausschenkenfunktion zu _aktiv oder nicht._ (Aktuelle Flüssigkeit: %2$s)",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition2": "_Wenn genutzt auf ein Limonadenglas_",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour2": "Schenkt die _Flüssigkeit vom Krug_ in das Glas.",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition3": "_Wenn genutzt in die Luft mit Limonadenflasche in sekundärer Hand_",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour3": "Füllt die _Flüssigkeit der Flasche_ in den Krug."
 }
