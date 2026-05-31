@@ -241,5 +241,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(Tags.Items.FOODS_BERRY).add(
             ModItems.RASPBERRY.get()
         );
+        tag(AllTags.ItemTags.VALID_JUG_FLUIDS).add(
+                ModItems.CITRON_LEMONADE_BOTTLE.get(),
+                ModItems.ORANGE_LEMONADE_BOTTLE.get(),
+                ModItems.RASPBERRY_LEMONADE_BOTTLE.get(),
+                ModItems.SUMMERMIX_LEMONADE_BOTTLE.get(),
+                ModItems.WATERMELON_LEMONADE_BOTTLE.get()
+        );
     }
 }

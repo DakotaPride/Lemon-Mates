@@ -127,6 +127,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         add(ModBlocks.LEMONADE_GLASS.get(), noDrop());
         add(ModBlocks.LEMONADE_JUG_TERRACOTTA.get(), noDrop());
+        add(ModBlocks.LEMONADE_JUG_GLASS.get(), noDrop());
 
         // Temp to fix datagen nagging
         add(ModBlocks.LEMONADE_GLASS_DECORATED.get(), noDrop());

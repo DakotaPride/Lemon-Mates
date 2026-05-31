@@ -41,6 +41,7 @@ public class AllTags {
         public static final TagKey<Item> C_PLATES_IRON = createTag("c", "plates/iron");
         public static final TagKey<Item> C_BUCKETS = createTag("c", "buckets");
         public static final TagKey<Item> C_BUCKETS_PLASTIC = createTag("c", "buckets/plastic");
+        public static final TagKey<Item> VALID_JUG_FLUIDS = createTag("valid_jug_fluids");
 
         private static TagKey<Item> createTag(String name) {
             return net.minecraft.tags.ItemTags.create(LemonMates.rl(name));
