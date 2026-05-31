@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:glass_panes"
+    },
+    "B": {
+      "tag": "c:glass_blocks"
+    }
+  },
+  "pattern": [
+    "# #",
+    "# #",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "lemonmates:lemonade_jug_glass"
+  }
+}

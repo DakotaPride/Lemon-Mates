@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-29T19:22:40.1888447	Tags for minecraft:item mod id lemonmates
+// 1.21.1	2026-05-31T12:41:06.4494528	Tags for minecraft:item mod id lemonmates
 d231b55caa33415899617007b0dbfbc428a9495d data/create/tags/item/upright_on_belt.json
 28511dee5e7f0634f2aece3397d9ffd9274aefed data/c/tags/item/buckets.json
 0c38161e712608c74a46b6afa4e53a0a4e1ee80f data/c/tags/item/buckets/plastic.json
@@ -29,6 +29,7 @@ ab47338f4cdfbb68da84ee8510e2299be37cee7c data/lemonmates/tags/item/lemonades/wat
 c2d6df006213f6f11da02a126a9085174bdf79c2 data/lemonmates/tags/item/lemonade_label_dyes.json
 fd5305c3bcf6d2b679026c1150927257ab94efd4 data/lemonmates/tags/item/molds.json
 13d4e7735ae53dea526fe61eb36457db27667dcc data/lemonmates/tags/item/orange_logs.json
+1ab77e801535128837c77874c3e3646399eaaf81 data/lemonmates/tags/item/valid_jug_fluids.json
 d0b542ced152991bf8d748ba08b40773b7e2f64a data/minecraft/tags/item/boats.json
 b92aa03b0d1f07b8052b054d181ecd3ca3de3b9b data/minecraft/tags/item/chest_boats.json
 4b2c7e1c50af5d63714df2c3a463f8d6298a4fb6 data/minecraft/tags/item/leaves.json

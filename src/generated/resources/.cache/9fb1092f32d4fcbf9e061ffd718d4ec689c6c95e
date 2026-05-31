@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-29T19:22:40.1918185	Recipes
+// 1.21.1	2026-05-31T12:41:06.4572641	Recipes
 facd248ef881f97de28f9e5e269db79dc09c7fb3 data/lemonmates/advancement/recipes/building_blocks/citron.json
 1d7c61d7aa66adee3bb6a9752e28e5b3481ff485 data/lemonmates/advancement/recipes/building_blocks/citron_crate.json
 8c180e50e9625c1985dfc40e7be05f0293d92fd2 data/lemonmates/advancement/recipes/building_blocks/citron_planks.json
@@ -28,6 +28,7 @@ ed7cc37c657142fcfb7a9f35e05ee108279cba8f data/lemonmates/advancement/recipes/mis
 3f7b9d8f197674a62374728056c3fbb0390897b6 data/lemonmates/advancement/recipes/misc/citron_slice.json
 8a5ff5088292e7db5904b0488942fcdeb4f3d8b7 data/lemonmates/advancement/recipes/misc/label_empty.json
 2ce38d1b0a3191d6ccf0b53638f457b5a8c0f517 data/lemonmates/advancement/recipes/misc/lemonade_glass.json
+42bd069b3e8b34bf2504b8845a13f913b13a3212 data/lemonmates/advancement/recipes/misc/lemonade_jug_glass.json
 07794e11bca6b3f5a4541c23ce70e184079ba7f2 data/lemonmates/advancement/recipes/misc/lemonade_jug_terracotta.json
 7090289653e8095ab022c12bc87396441acb7b00 data/lemonmates/advancement/recipes/misc/orange_from_crate.json
 79dda7e25b11b57791df4af5f50cd05c55a68eb6 data/lemonmates/advancement/recipes/misc/orange_slice.json
@@ -72,6 +73,7 @@ a2e9563dd03da6f91007bce9d7f5ca443a86d2be data/lemonmates/recipe/citron_slice.jso
 8a180511c751f3e23544d072d880c7d0cc60ccec data/lemonmates/recipe/citron_wood.json
 f37e26b1d661dbf1d288bc4fa2a3d2590aa307d7 data/lemonmates/recipe/label_empty.json
 972a1051a558fd53ff3e93e533239e7822f32984 data/lemonmates/recipe/lemonade_glass.json
+cc2f7168aee3730ff80483f5ad8eeb6f43c83dec data/lemonmates/recipe/lemonade_jug_glass.json
 95577366693e19041ea153ada391de14ccdca07c data/lemonmates/recipe/lemonade_jug_terracotta.json
 fa5c3be35146baac35c21ac10ea3fce7aa431d80 data/lemonmates/recipe/orange.json
 4fee22ae48a9903db8201e411fad82b780879c23 data/lemonmates/recipe/orange_boat.json
