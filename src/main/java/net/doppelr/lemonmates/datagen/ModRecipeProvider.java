@@ -1,5 +1,6 @@
 package net.doppelr.lemonmates.datagen;
 
+import net.doppelr.lemonmates.AllDataComponents;
 import net.doppelr.lemonmates.AllTags;
 import net.doppelr.lemonmates.LemonMates;
 import net.doppelr.lemonmates.block.ModBlocks;
@@ -136,13 +137,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
         // Lemonade Jug/Glass
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEMONADE_JUG_TERRACOTTA.get())
-                .pattern("# #")
-                .pattern("# #")
-                .pattern(" # ")
-                .define('#', Tags.Items.BRICKS)
-                .unlockedBy("has_bricks", has(Tags.Items.BRICKS))
-                .save(recipeOutput);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEMONADE_JUG_TERRACOTTA.get())
+//                .pattern("# #")
+//                .pattern("# #")
+//                .pattern(" # ")
+//                .define('#', Tags.Items.BRICKS)
+//                .unlockedBy("has_bricks", has(Tags.Items.BRICKS))
+//                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEMONADE_GLASS.get())
                 .pattern("   ")
@@ -153,14 +154,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEMONADE_JUG_GLASS.get())
-                .pattern("# #")
-                .pattern("# #")
-                .pattern(" B ")
-                .define('#', Tags.Items.GLASS_PANES)
-                .define('B', Tags.Items.GLASS_BLOCKS)
-                .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS))
-                .save(recipeOutput);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEMONADE_JUG_GLASS.get())
+//                .pattern("# #")
+//                .pattern("# #")
+//                .pattern(" B ")
+//                .define('#', Tags.Items.GLASS_PANES)
+//                .define('B', Tags.Items.GLASS_BLOCKS)
+//                .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS))
+//                .save(recipeOutput);
 
         // get Molds back
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.PREFORM.get(), 1)

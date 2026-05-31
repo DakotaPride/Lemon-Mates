@@ -1,6 +1,7 @@
 package net.doppelr.lemonmates;
 
 import net.doppelr.lemonmates.block.ModBlocks;
+import net.doppelr.lemonmates.block.properties.ApplicableFluidsToFluidContainer;
 import net.doppelr.lemonmates.block.properties.StrawsVariants;
 import net.doppelr.lemonmates.block.properties.UmbrellaVariants;
 import net.doppelr.lemonmates.fluid.ModFluids;
@@ -19,6 +20,8 @@ public class AllCreativeModeTabs {
 
     private static ItemStack lemonadeJugStack(ItemStack stack) {
         stack.set(AllDataComponents.CAN_POUR, false);
+        stack.set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, ApplicableFluidsToFluidContainer.NONE);
+        stack.set(AllDataComponents.JUG_LEVEL, 0);
         return stack;
     }
 
@@ -43,6 +46,7 @@ public class AllCreativeModeTabs {
                 // Misc
                 output.accept(ModBlocks.LEMONADE_GLASS);
                 output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_TERRACOTTA.toStack()));
+                output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_GLASS.toStack()));
 
                 // Finished Lemonades
                 output.accept(ModItems.CITRON_LEMONADE_BOTTLE);
@@ -166,12 +170,13 @@ public class AllCreativeModeTabs {
         () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + LemonMates.MOD_ID + ".serving"))
             .withTabsBefore(AllCreativeModeTabs.PROCESSING_CREATIVE_TAB.getKey())
-            .icon(() -> new ItemStack(ModBlocks.LEMONADE_GLASS_DECORATED.get()))
+            .icon(() -> new ItemStack(ModItems.LEMONADE_GLASS_DECORATED.get()))
             .displayItems((params, output) -> {
 
                 // Glass
                 output.accept(ModBlocks.LEMONADE_GLASS);
                 output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_TERRACOTTA.toStack()));
+                output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_GLASS.toStack()));
                 output.accept(ModItems.ICE_CUBES);
 
                 // Straws

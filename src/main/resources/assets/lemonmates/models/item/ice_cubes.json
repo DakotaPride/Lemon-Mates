@@ -2,8 +2,8 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "item/ice_cube",
-		"particle": "item/ice_cube"
+		"0": "minecraft:block/ice",
+		"particle": "minecraft:block/ice"
 	},
 	"elements": [
 		{

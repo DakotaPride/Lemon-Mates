@@ -126,10 +126,10 @@ public class ModDrinkingGlassBlock extends HorizontalDirectionalBlock implements
                     int blockDrinkLevel = state.getValue(DRINK_LEVEL) == 1 ? 2 : newDrinkLevel;
                     ApplicableFluidsToFluidContainer pouredFluid = stack.get(AllDataComponents.JUG_LEVEL) > 0 ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : state.getValue(FLUID);
                     if (state.getValue(FLUID) == ApplicableFluidsToFluidContainer.NONE || state.getValue(DRINK_LEVEL) == 0) {
-                        level.setBlockAndUpdate(pos, state.setValue(FLUID, pouredFluid).setValue(DRINK_LEVEL, blockDrinkLevel));
-                        jugItem.removeFromJugLevel(stack, player, newDrinkLevel);
                         if (stack.get(AllDataComponents.JUG_LEVEL) > 0)
                             level.playSound(player, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.setBlockAndUpdate(pos, state.setValue(FLUID, pouredFluid).setValue(DRINK_LEVEL, blockDrinkLevel));
+                        jugItem.removeFromJugLevelWithBlockStateData(stack, player, newDrinkLevel);
                     }
                 }
             } else {

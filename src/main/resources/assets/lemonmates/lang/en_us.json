@@ -182,7 +182,7 @@
   "jugFluid.lemonmates.summermix_lemonade": "Summer-Mix Lemonade",
   "jugFluid.lemonmates.watermelon_lemonade": "Watermelon Lemonade",
 
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.summary": "A way to store your fluids _more aesthetically._ Holds enough fluid to fill _8 glasses_.",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.summary": "A way to store your fluids _more aesthetically._ Holds enough fluid to fill _8 glasses_. (Current Capacity: %3$s/8)",
   "block.lemonmates.lemonade_jug_terracotta.tooltip.condition1": "_When used while sneaking with empty offhand_ (Currently able to pour: %1$s)",
   "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour1": "Toggle pouring functionality to either be _active or not._ (Currently Pouring: %2$s)",
   "block.lemonmates.lemonade_jug_terracotta.tooltip.condition2": "_When used onto a Lemonade Glass_",

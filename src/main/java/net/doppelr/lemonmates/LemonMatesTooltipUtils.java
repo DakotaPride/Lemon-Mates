@@ -14,7 +14,7 @@ public class LemonMatesTooltipUtils {
         createShiftText(components);
         if (Screen.hasShiftDown()) {
             components.add(empty());
-            components.addAll(getBasicSummary(id));
+            components.addAll(getBasicSummary(id, args));
             if (hasConditionalBehaviour) {
                 createConditionalBehaviourTooltip(id, 1, components, args);
             }
@@ -63,8 +63,8 @@ public class LemonMatesTooltipUtils {
         return Component.literal("");
     }
 
-    public static List<Component> getBasicSummary(String id) {
-        return FontHelper.cutTextComponent(Component.translatable(id + ".tooltip.summary"), FontHelper.Palette.STANDARD_CREATE);
+    public static List<Component> getBasicSummary(String id, Object... args) {
+        return FontHelper.cutTextComponent(Component.translatable(id + ".tooltip.summary", args), FontHelper.Palette.STANDARD_CREATE);
     }
 
     public static List<Component> getCondition(String id, int sequence, Object... args) {

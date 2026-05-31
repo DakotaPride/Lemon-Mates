@@ -161,6 +161,9 @@ public class ModItems {
 
     /** Move registration to enum -> {@link UmbrellaVariants} **/
 
+    public static final DeferredItem<Item> LEMONADE_GLASS_DECORATED = ITEMS.register("lemonade_glass_decorated",
+            () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> LEMONADE_JUG_TERRACOTTA = ITEMS.register("lemonade_jug_terracotta",
             () -> new ModJugItem(ModBlocks.LEMONADE_JUG_TERRACOTTA.get(), new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> LEMONADE_JUG_GLASS = ITEMS.register("lemonade_jug_glass",

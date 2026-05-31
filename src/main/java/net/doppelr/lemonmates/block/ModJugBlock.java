@@ -59,17 +59,16 @@ public class ModJugBlock extends Block implements SimpleWaterloggedBlock {
             ItemStack itemStack = new ItemStack(this);
             int jugLevel = state.getValue(JUG_LEVEL);
             ApplicableFluidsToFluidContainer fluid = state.getValue(FLUID);
-            boolean canPour = state.getValue(CAN_POUR);
 
-            if (jugLevel > 0 || fluid != ApplicableFluidsToFluidContainer.NONE || canPour) {
+            if (jugLevel > 0 || fluid != ApplicableFluidsToFluidContainer.NONE) {
                 DataComponentMap.Builder map = DataComponentMap.builder();
                 map.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY
                                 .with(AllBlockStateProperties.JUG_LEVEL, jugLevel)
                                 .with(AllBlockStateProperties.APPLICABLE_FLUID_TO_CONTAINER, fluid)
-                                .with(AllBlockStateProperties.CAN_POUR, canPour))
+                                .with(AllBlockStateProperties.CAN_POUR, false))
                         .set(AllDataComponents.JUG_LEVEL, jugLevel)
                         .set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, fluid)
-                        .set(AllDataComponents.CAN_POUR, canPour);
+                        .set(AllDataComponents.CAN_POUR, false);
 
                 itemStack.applyComponents(map.build());
             }
