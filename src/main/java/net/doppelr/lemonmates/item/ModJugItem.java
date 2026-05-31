@@ -142,9 +142,10 @@ public class ModJugItem extends BlockItem {
         String id = "block.lemonmates.lemonade_jug_terracotta";
         boolean pour = stack.get(AllDataComponents.CAN_POUR) != null ? stack.get(AllDataComponents.CAN_POUR) : false;
         ApplicableFluidsToFluidContainer applicableFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE;
+        int level = stack.get(AllDataComponents.JUG_LEVEL) != null ? stack.get(AllDataComponents.JUG_LEVEL): 0;
         Component fluid = Component.translatable("jugFluid.lemonmates." + applicableFluid.getSerializedName());
         LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour, fluid);
-        LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 2, tooltipComponents);
-        LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 3, tooltipComponents, fluid);
+        LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 2, tooltipComponents, pour, fluid, level);
+        LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 3, tooltipComponents, fluid, level);
     }
 }
