@@ -171,8 +171,6 @@ public class ModItems {
 
     public static final DeferredItem<Item> ICE_CUBES = ITEMS.register("ice_cubes",
             () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> LEMONADE_GLASS_DECORATED = ITEMS.register("lemonade_glass_decorated",
-            () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         StrawsVariants.include();

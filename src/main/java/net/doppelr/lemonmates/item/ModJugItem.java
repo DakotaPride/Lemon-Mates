@@ -202,7 +202,7 @@ public class ModJugItem extends BlockItem {
         ApplicableFluidsToFluidContainer applicableFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE;
         int level = stack.get(AllDataComponents.JUG_LEVEL) != null ? stack.get(AllDataComponents.JUG_LEVEL): 0;
         Component fluid = Component.translatable("jugFluid.lemonmates." + applicableFluid.getSerializedName());
-        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour, fluid);
+        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour, fluid, level);
         LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 2, tooltipComponents, pour, fluid, level);
         LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 3, tooltipComponents, fluid, level);
     }

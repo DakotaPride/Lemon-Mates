@@ -512,7 +512,7 @@
     },
     {
       "when": {
-        "umbrella": "yellow_white",
+        "umbrella": "orange_white",
         "facing": "south"
       },
       "apply": {
