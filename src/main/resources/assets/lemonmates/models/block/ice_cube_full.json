@@ -1,6 +1,7 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
+	"render_type": "minecraft:translucent",
 	"textures": {
 		"if": "minecraft:block/ice",
 		"particle": "minecraft:block/ice"

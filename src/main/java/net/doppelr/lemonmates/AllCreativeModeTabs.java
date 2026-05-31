@@ -1,6 +1,7 @@
 package net.doppelr.lemonmates;
 
 import net.doppelr.lemonmates.block.ModBlocks;
+import net.doppelr.lemonmates.block.properties.ApplicableFluidsToFluidContainer;
 import net.doppelr.lemonmates.block.properties.StrawsVariants;
 import net.doppelr.lemonmates.block.properties.UmbrellaVariants;
 import net.doppelr.lemonmates.fluid.ModFluids;
@@ -19,6 +20,8 @@ public class AllCreativeModeTabs {
 
     private static ItemStack lemonadeJugStack(ItemStack stack) {
         stack.set(AllDataComponents.CAN_POUR, false);
+        stack.set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, ApplicableFluidsToFluidContainer.NONE);
+        stack.set(AllDataComponents.JUG_LEVEL, 0);
         return stack;
     }
 
@@ -43,6 +46,7 @@ public class AllCreativeModeTabs {
                 // Misc
                 output.accept(ModBlocks.LEMONADE_GLASS);
                 output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_TERRACOTTA.toStack()));
+                output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_GLASS.toStack()));
 
                 // Finished Lemonades
                 output.accept(ModItems.CITRON_LEMONADE_BOTTLE);

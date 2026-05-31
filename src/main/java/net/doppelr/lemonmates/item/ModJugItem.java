@@ -6,6 +6,8 @@ import net.doppelr.lemonmates.LemonMatesTooltipUtils;
 import net.doppelr.lemonmates.block.ModDrinkingGlassBlock;
 import net.doppelr.lemonmates.block.properties.ApplicableFluidsToFluidContainer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -25,7 +28,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Locale;
 
 public class ModJugItem extends BlockItem {
     public ModJugItem(Block block, Properties properties) {
@@ -38,7 +40,11 @@ public class ModJugItem extends BlockItem {
     }
 
     public void setContainedFluid(ItemStack stack, ApplicableFluidsToFluidContainer fluid) {
-        stack.set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, fluid);
+        if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == ApplicableFluidsToFluidContainer.NONE
+                || stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == fluid)
+            stack.set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, fluid);
+        else if (stack.get(AllDataComponents.JUG_LEVEL) != null && stack.get(AllDataComponents.JUG_LEVEL) == 0)
+            stack.set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, fluid);
     }
 
     public void setJugLevel(ItemStack stack, int jugLevel) {
@@ -50,13 +56,58 @@ public class ModJugItem extends BlockItem {
             stack.set(AllDataComponents.JUG_LEVEL, stack.get(AllDataComponents.JUG_LEVEL) + increment);
     }
 
+    public void addToJugLevelWithBlockStateData(ItemStack stack, int increment) {
+        if (stack.get(AllDataComponents.JUG_LEVEL) != null) {
+            int f = stack.get(AllDataComponents.JUG_LEVEL) + increment;
+            this.addToJugLevel(stack, increment);
+
+            if (stack.get(DataComponents.BLOCK_STATE) != null) {
+                DataComponentMap.Builder map = DataComponentMap.builder();
+
+                ApplicableFluidsToFluidContainer applicableFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE;
+
+                map.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY
+                                .with(AllBlockStateProperties.JUG_LEVEL, f)
+                                .with(AllBlockStateProperties.APPLICABLE_FLUID_TO_CONTAINER, applicableFluid))
+                        .set(AllDataComponents.JUG_LEVEL, f)
+                        .set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, applicableFluid);
+
+                stack.applyComponents(map.build());
+            }
+        }
+    }
+
     public void removeFromJugLevel(ItemStack stack, Player player, int decrement) {
         if (!player.getAbilities().instabuild)
             if (stack.get(AllDataComponents.JUG_LEVEL) != null) {
                 int f = stack.get(AllDataComponents.JUG_LEVEL) - decrement;
                 if (f >= 0 && f <= 8)
-                    stack.set(AllDataComponents.JUG_LEVEL, stack.get(AllDataComponents.JUG_LEVEL) - decrement);
+                    stack.set(AllDataComponents.JUG_LEVEL, f);
             }
+    }
+
+    public void removeFromJugLevelWithBlockStateData(ItemStack stack, Player player, int decrement) {
+        if (!player.getAbilities().instabuild) {
+            if (stack.get(AllDataComponents.JUG_LEVEL) != null) {
+                int f = stack.get(AllDataComponents.JUG_LEVEL) - decrement;
+                this.removeFromJugLevel(stack, player, decrement);
+
+                if (stack.get(DataComponents.BLOCK_STATE) != null) {
+                    DataComponentMap.Builder map = DataComponentMap.builder();
+
+                    ApplicableFluidsToFluidContainer applicableFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE;
+
+                    map.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY
+                                    .with(AllBlockStateProperties.JUG_LEVEL, f)
+                                    .with(AllBlockStateProperties.APPLICABLE_FLUID_TO_CONTAINER, applicableFluid))
+                            .set(AllDataComponents.JUG_LEVEL, f)
+                            .set(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER, applicableFluid);
+
+                    if (f >= 0 && f <= 8)
+                        stack.applyComponents(map.build());
+                }
+            }
+        }
     }
 
     public void jugLevelHandling(ItemStack stack, Player player, ApplicableFluidsToFluidContainer fluid) {
@@ -64,21 +115,23 @@ public class ModJugItem extends BlockItem {
         if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != fluid)
             this.setContainedFluid(stack, fluid);
 
+        boolean checkFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null && (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == fluid || stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) == ApplicableFluidsToFluidContainer.NONE);
+
         if (stack.get(AllDataComponents.JUG_LEVEL) == null || stack.get(AllDataComponents.JUG_LEVEL) == 0) {
             this.setJugLevel(stack, 4);
             level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().instabuild)
                 player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
-        } else if (stack.get(AllDataComponents.JUG_LEVEL) <= 4) {
-            this.addToJugLevel(stack, 4);
+        } else if (stack.get(AllDataComponents.JUG_LEVEL) <= 4 && checkFluid) {
+            this.addToJugLevelWithBlockStateData(stack, 4);
             level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().instabuild)
                 player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
-        } else if (stack.get(AllDataComponents.JUG_LEVEL) < 8) {
+        } else if (stack.get(AllDataComponents.JUG_LEVEL) < 8 && checkFluid) {
             int incrementJugLevel = 4;
             if (stack.get(AllDataComponents.JUG_LEVEL) > 4)
                 incrementJugLevel = 8 - stack.get(AllDataComponents.JUG_LEVEL);
-            this.addToJugLevel(stack, incrementJugLevel);
+            this.addToJugLevelWithBlockStateData(stack, incrementJugLevel);
             level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().instabuild)
                 player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
@@ -96,6 +149,11 @@ public class ModJugItem extends BlockItem {
                 .setValue(AllBlockStateProperties.APPLICABLE_FLUID_TO_CONTAINER, fluid)
                 .setValue(AllBlockStateProperties.JUG_LEVEL, jugLevel)
                 .setValue(AllBlockStateProperties.CAN_POUR, canPour) : null;
+    }
+
+    @Override
+    protected boolean canPlace(BlockPlaceContext context, BlockState state) {
+        return super.canPlace(context, state) && !context.getItemInHand().get(AllDataComponents.CAN_POUR);
     }
 
     @Override

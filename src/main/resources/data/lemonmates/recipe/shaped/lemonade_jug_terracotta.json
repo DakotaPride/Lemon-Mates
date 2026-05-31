@@ -12,6 +12,11 @@
     " # "
   ],
   "result": {
+    "components": {
+      "lemonmates:can_pour": false,
+      "lemonmates:jug_level": 0,
+      "lemonmates:fluid": "none"
+    },
     "count": 1,
     "id": "lemonmates:lemonade_jug_terracotta"
   }
