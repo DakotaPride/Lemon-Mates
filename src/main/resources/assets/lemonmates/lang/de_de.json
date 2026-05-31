@@ -98,7 +98,7 @@
   "block.lemonmates.raspberry_crate": "Himbeerenkiste",
 
   "block.lemonmates.lemonade_glass": "Limonadenglass",
-  "block.lemonmates.lemonade_glass_decorated": "Dekoriertes Limonadenglass",
+  "item.lemonmates.lemonade_glass_decorated": "Dekoriertes Limonadenglass",
   "item.lemonmates.ice_cubes": "Eiswürfel",
   "block.lemonmates.lemonade_jug_terracotta": "Porzellanlimonadenkrug",
   "block.lemonmates.lemonade_jug_glass": "Glaslimonadenkrug",
@@ -183,10 +183,10 @@
   "jugFluid.lemonmates.watermelon_lemonade": "Wassermelonenlimonade",
 
   "block.lemonmates.lemonade_jug_terracotta.tooltip.summary": "Ein Weg, um deine Flüssigkeiten _asthetischer_ zu lagern. Genug Platz, um _8 Gläser_ komplett zu füllen.",
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition1": "_Wenn während Schleichen genutzt mit leerer sekundärer Hand_ (Ausschenkbar: %1$s)",
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour1": "Wechselt die Ausschenkenfunktion zu _aktiv oder nicht._ (Aktuelle Flüssigkeit: %2$s)",
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition2": "_Wenn genutzt auf ein Limonadenglas_",
-  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour2": "Schenkt die _Flüssigkeit vom Krug_ in das Glas.",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition1": "_Wenn während Schleichen genutzt mit leerer sekundärer Hand_",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour1": "Wechselt die Ausschenkenfunktion zwischen _aktiv oder nicht._ (Aktuelle Flüssigkeit: %2$s)",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.condition2": "_Wenn genutzt auf ein Limonadenglas_ (Ausschenkbar: %1$s)",
+  "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour2": "Schenkt die _Flüssigkeit vom Krug_ in das Glas. (Füllungen übrig: %3$s)",
   "block.lemonmates.lemonade_jug_terracotta.tooltip.condition3": "_Wenn genutzt in die Luft mit Limonadenflasche in sekundärer Hand_",
   "block.lemonmates.lemonade_jug_terracotta.tooltip.behaviour3": "Füllt die _Flüssigkeit der Flasche_ in den Krug."
 }
