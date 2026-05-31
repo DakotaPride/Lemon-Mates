@@ -171,7 +171,7 @@ public class AllCreativeModeTabs {
 
                 // Glass
                 output.accept(ModBlocks.LEMONADE_GLASS);
-                output.accept(ModBlocks.LEMONADE_JUG_TERRACOTTA);
+                output.accept(lemonadeJugStack(ModItems.LEMONADE_JUG_TERRACOTTA.toStack()));
                 output.accept(ModItems.ICE_CUBES);
 
                 // Straws

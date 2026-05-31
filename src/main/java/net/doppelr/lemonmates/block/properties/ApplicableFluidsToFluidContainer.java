@@ -6,6 +6,7 @@ import net.createmod.catnip.codecs.stream.CatnipStreamCodecBuilders;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.food.FoodProperties;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
@@ -34,7 +35,7 @@ public enum ApplicableFluidsToFluidContainer implements StringRepresentable {
     }
 
     @Override
-    public String getSerializedName() {
+    public @NotNull String getSerializedName() {
         return name().toLowerCase(Locale.ROOT);
     }
 }

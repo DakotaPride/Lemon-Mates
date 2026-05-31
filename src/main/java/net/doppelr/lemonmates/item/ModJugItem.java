@@ -7,6 +7,8 @@ import net.doppelr.lemonmates.block.ModDrinkingGlassBlock;
 import net.doppelr.lemonmates.block.properties.ApplicableFluidsToFluidContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -23,6 +25,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Locale;
 
 public class ModJugItem extends BlockItem {
     public ModJugItem(Block block, Properties properties) {
@@ -57,15 +60,18 @@ public class ModJugItem extends BlockItem {
     }
 
     public void jugLevelHandling(ItemStack stack, Player player, ApplicableFluidsToFluidContainer fluid) {
+        Level level = player.level();
         if (stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != fluid)
             this.setContainedFluid(stack, fluid);
 
         if (stack.get(AllDataComponents.JUG_LEVEL) == null || stack.get(AllDataComponents.JUG_LEVEL) == 0) {
             this.setJugLevel(stack, 4);
+            level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().instabuild)
                 player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
         } else if (stack.get(AllDataComponents.JUG_LEVEL) <= 4) {
             this.addToJugLevel(stack, 4);
+            level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().instabuild)
                 player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
         } else if (stack.get(AllDataComponents.JUG_LEVEL) < 8) {
@@ -73,6 +79,7 @@ public class ModJugItem extends BlockItem {
             if (stack.get(AllDataComponents.JUG_LEVEL) > 4)
                 incrementJugLevel = 8 - stack.get(AllDataComponents.JUG_LEVEL);
             this.addToJugLevel(stack, incrementJugLevel);
+            level.playSound(player, player.blockPosition(), SoundEvents.BOTTLE_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().instabuild)
                 player.setItemInHand(InteractionHand.OFF_HAND, ModItems.BOTTLE_EMPTY.toStack());
         }
@@ -134,8 +141,10 @@ public class ModJugItem extends BlockItem {
     public void appendHoverText(ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
         String id = "block.lemonmates.lemonade_jug_terracotta";
         boolean pour = stack.get(AllDataComponents.CAN_POUR) != null ? stack.get(AllDataComponents.CAN_POUR) : false;
-        //String currentfluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != ApplicableFluidsToFluidContainer.NONE ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE ;
-        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour );// , currentfluid);
+        ApplicableFluidsToFluidContainer applicableFluid = stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) != null ? stack.get(AllDataComponents.APPLICABLE_FLUID_TO_CONTAINER) : ApplicableFluidsToFluidContainer.NONE;
+        Component fluid = Component.translatable("jugFluid.lemonmates." + applicableFluid.getSerializedName());
+        LemonMatesTooltipUtils.createCustomTooltip(id, true, tooltipComponents, pour, fluid);
         LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 2, tooltipComponents);
+        LemonMatesTooltipUtils.createAdditionalConditionalBehaviourTooltip(id, 3, tooltipComponents, fluid);
     }
 }
